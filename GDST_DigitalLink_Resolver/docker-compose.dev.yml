@@ -1,0 +1,55 @@
+version: '3.3'
+
+services:
+  app:
+    build: .
+    ports:
+      - "4040:4040"
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongo:27017/gdst-digitallink-dev
+      - PORT=4040
+    depends_on:
+      - mongo
+    restart: unless-stopped
+    networks:
+      - gdst-dev-network
+    volumes:
+      - ./src:/app/src
+      - ./package.json:/app/package.json
+    command: npm run dev
+
+  mongo:
+    image: mongo:6.0
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=gdst-digitallink-dev
+    volumes:
+      - mongo_dev_data:/data/db
+    networks:
+      - gdst-dev-network
+
+  mongo-express:
+    image: mongo-express:latest
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=admin123
+    depends_on:
+      - mongo
+    networks:
+      - gdst-dev-network
+
+volumes:
+  mongo_dev_data:
+
+networks:
+  gdst-dev-network:
+    driver: bridge

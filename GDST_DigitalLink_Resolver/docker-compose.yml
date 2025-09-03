@@ -1,0 +1,62 @@
+version: '3.3'
+
+services:
+  app:
+    build: .
+    ports:
+      - "4040:4040"
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongo:27017/gdst-digitallink
+      - PORT=4040
+    depends_on:
+      - mongo
+    restart: unless-stopped
+    networks:
+      - gdst-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4040/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  mongo:
+    image: mongo:6.0
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=gdst-digitallink
+    volumes:
+      - mongo_data:/data/db
+      - ./docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - gdst-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/gdst-digitallink --quiet
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  mongo-express:
+    image: mongo-express:latest
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=admin123
+    depends_on:
+      - mongo
+    networks:
+      - gdst-network
+
+volumes:
+  mongo_data:
+
+networks:
+  gdst-network:
+    driver: bridge

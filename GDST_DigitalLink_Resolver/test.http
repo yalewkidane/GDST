@@ -1,0 +1,136 @@
+
+### GDST Digital Link Resolver API Tests
+
+# Variables
+@keyType = 00
+@idValue = urn:epc:id:sscc:08600031303.0003
+@linkTypeValue = gs1:epcis
+@apiKey = ec6e6c5f-4464-4291-b029-4c56f8f77298
+
+### Health Check
+GET http://localhost:4040/health
+
+### Create Digital Links (Bulk Format)
+POST http://localhost:4040/digitallink/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/{{keyType}}/{{idValue}}",
+  "itemDescription": "Dal Giardino Risotto Rice with Mushrooms 411 gr",
+  "defaultLinktype": "gs1:sustainabilityInfo",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "https://dalgiardino.com/epcis",
+      "title": "EPCIS Event Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "https://dalgiardino.com/masterdata/location",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:hasRetailers",
+      "href": "https://dalgiardino.com/where-to-buy/?test_lt=gs1:hasRetailers&test_lang=en",
+      "title": "Where to buy",
+      "type": "text/html",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:hasRetailers",
+      "href": "https://dalgiardino.com/where-to-buy/index.html.es?test_lt=gs1:hasRetailers&test_lang=es",
+      "title": "Donde comprar Dal Giardino",
+      "type": "text/html",
+      "hreflang": [
+        "es"
+      ]
+    }
+  ]
+}
+
+### Create Digital Links for PGLN (417)
+POST http://localhost:4040/digitallink/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/urn:epc:pgln:08600031303.0003",
+  "itemDescription": "Dal Giardino Company Location",
+  "defaultLinktype": "gs1:sustainabilityInfo",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "https://dalgiardino.com/epcis",
+      "title": "EPCIS Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "https://dalgiardino.com/masterdata",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### Get Digital Links by Identifier and LinkType (Using Variables)
+GET http://localhost:4040/digitallink/{{keyType}}/{{idValue}}?linkType={{linkTypeValue}}
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Get Digital Links for PGLN with EPCIS
+GET http://localhost:4040/digitallink/417/urn:epc:pgln:08600031303.0003?linkType=gs1:epcis
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Get All Digital Links for an Identifier (Master Data)
+GET http://localhost:4040/digitallink/{{keyType}}/{{idValue}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Get All Links for an Identifier (No Filter)
+GET http://localhost:4040/digitallink/{{keyType}}/{{idValue}}
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### General Request Pattern
+# GET http://localhost:4040/digitallink/{{keyType}}/{{idValue}}?linkType={{linkTypeValue}}
+# Accept: application/json
+# X-API-Key: {{apiKey}}
+
+### Expected Response Format
+# [
+#     {
+#         "link": "https://dalgiardino.com/epcis",
+#         "title": "EPCIS Event Data",
+#         "linkType": "gs1:epcis",
+#         "ianaLanguage": "en",
+#         "context": "",
+#         "mimeType": "application/json",
+#         "active": true,
+#         "fwqs": false,
+#         "defaultLinkType": false,
+#         "defaultIanaLanguage": true,
+#         "defaultContext": false,
+#         "defaultMimeType": true,
+#         "identifier": "urn:epc:id:sscc:08600031303.0003",
+#         "authRequired": false
+#     }
+# ]
