@@ -67,7 +67,7 @@ router.post('/new', async (req, res, next) => {
         defaultIanaLanguage: link.hreflang && link.hreflang.length > 0,
         defaultContext: false,
         defaultMimeType: !!link.type,
-        authRequired: false
+        authRequired: true
       };
 
       try {
@@ -321,7 +321,7 @@ router.post('/seed', async (req, res, next) => {
         defaultIanaLanguage: true,
         defaultContext: false,
         defaultMimeType: true,
-        authRequired: false
+        authRequired: true
       }
     ];
 

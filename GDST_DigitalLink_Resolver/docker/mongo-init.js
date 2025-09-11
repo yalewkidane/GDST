@@ -46,7 +46,7 @@ db.digitallinks.insertMany([
     "defaultIanaLanguage": true,
     "defaultContext": false,
     "defaultMimeType": true,
-    "authRequired": false,
+    "authRequired": true,
     "createdAt": new Date(),
     "updatedAt": new Date()
   }
