@@ -1,0 +1,536 @@
+@apiKey = 62237afe89d3fbec955b34f3b9b447948a612c70b591cd5b5837d3aad0a6ac48
+@port=24240
+@baseUrl=http://210.113.134.235:{{port}}/gs1webvoc
+
+
+@SOLUTION-PROVIDER-URL=http://210.113.134.235:24241/digitallink
+### -----------------------------------------------------------------------------------------------------------------------------------Product Definitions 
+
+@vegetables_product=urn:gdst:traceability-solution.com:product:class:88000197.2000002
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/{{vegetables_product}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/{{vegetables_product}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/01/{{vegetables_product}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Gukje Feedworks Ltd Organization Lookup
+GET http://210.113.134.235:24240/gs1webvoc/01/urn:gdst:traceability-solution.com:product:class:88000197.2000002
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/01/{{vegetables_product}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+###------------------------ Soy-based Salmon Feed
+
+#GTIN: urn:gdst:traceability-solution.com:product:class:7d90c2cd-a801-4e22-acee-82bf27a4844d.soy
+#Owing Party: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
+#Information Provider: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
+@soy_product=urn:gdst:traceability-solution.com:product:class:8800017.2000002
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/{{soy_product}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/{{soy_product}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/01/{{soy_product}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/01/{{soy_product}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### ------------------------ Atlantic Salmon Fry
+
+
+
+#GTIN: urn:gdst:traceability-solution.com:product:class:dfa01b63-aaaa-4454-b13c-c53d6bdfab43.sal-fry
+#Owing Party: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
+#Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
+@Atlantic_Salmon_Fry_Product=urn:gdst:traceability-solution.com:product:class:8800028.2000002
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/{{Atlantic_Salmon_Fry_Product}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/{{Atlantic_Salmon_Fry_Product}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/01/{{Atlantic_Salmon_Fry_Product}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/01/{{Atlantic_Salmon_Fry_Product}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+###------------------------ Atlantic Salmon
+
+#GTIN: urn:gdst:traceability-solution.com:product:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole
+#Owing Party: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
+#Information Provider: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
+@Atlantic_Salmon_Product=urn:gdst:traceability-solution.com:product:class:8800027.2000002
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Product",
+  "gtin": "{{Atlantic_Salmon_Product}}",
+  "productName": [
+    { "@language": "en-US", "@value": "Atlantic Salmon" }
+  ],
+  "cbvmda:fishSeafoodPresentationCode": "WHL",
+  "cbvmda:owning_party": "{{jagalchi_tidal_processing_party}}",
+  "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}",
+  "cbvmda:speciesForFisheryStatisticsPurposesName": ["Salmo salar"],
+  "cbvmda:speciesForFisheryStatisticsPurposesCode": ["SAL"]
+}
+
+
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/01/{{Atlantic_Salmon_Product}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+### -----------------------------------------------------------------------------------------------------------------------------------Organization Definitions 
+
+#------------------------ Gukje Feedworks Ltd.
+
+#PGLN: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
+#Information Provider: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
+@Gukje_Feedmill_party=urn:gdst:traceability-solution.com:party:8800037.2000002
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Organization",
+  "globalLocationNumber": "{{Gukje_Feedmill_party}}",
+  "cbvmda:informationProvider": "{{Gukje_Feedmill_party}}",
+  "organizationName": [
+    { "@language": "en-US", "@value": "Gukje Feedworks Ltd." }
+  ]
+}
+
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/417/{{Gukje_Feedmill_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+### ------------------------ Haeundae Hatch & Nursery Co.
+
+#PGLN: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
+#Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
+@haeundae_farm_party=urn:gdst:traceability-solution.com:party:8800048.2000002
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Organization",
+  "globalLocationNumber": "{{haeundae_farm_party}}",
+  "cbvmda:informationProvider": "{{haeundae_farm_party}}",
+  "organizationName": [
+    { "@language": "en-US", "@value": "Haeundae Hatch & Nursery Co." }
+  ]
+}
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/417/{{haeundae_farm_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### ------------------------ Jagalchi Tidal Processing Co.
+
+#PGLN: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
+#Information Provider: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
+@jagalchi_tidal_processing_party=urn:gdst:traceability-solution.com:party:8800057.2000002
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Organization",
+  "globalLocationNumber": "{{jagalchi_tidal_processing_party}}",
+  "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}",
+  "organizationName": [
+    { "@language": "en-US", "@value": "Jagalchi Tidal Salmon Farms Co." }
+  ]
+}
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/417/{{jagalchi_tidal_processing_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### ------------------------ BlueWave Retailer Co.
+
+#PGLN: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
+#Information Provider: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
+@bluewave_retailer_party=urn:gdst:traceability-solution.com:party:8800067.2000002
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Organization",
+  "globalLocationNumber": "{{bluewave_retailer_party}}",
+  "cbvmda:informationProvider": "{{bluewave_retailer_party}}",
+  "organizationName": [
+    { "@language": "en-US", "@value": "BlueWave Marine Processing Co." }
+  ]
+}
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/417/{{bluewave_retailer_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+
+
+
+
+### -----------------------------------------------------------------------------------------------------------------------------------Place Definitions 
+
+#----------------------Gukje Feedmill- Location
+
+#GLN: urn:gdst:traceability-solution.com:location:loc:7d90c2cd-a801-4e22-acee-82bf27a4844d.feedmill
+#Owning Party: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
+#Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
+@Gukje_Feedmill_location_Feedmill=urn:gdst:traceability-solution.com:loc:8800037.2000012
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Place",
+  "globalLocationNumber": "{{Gukje_Feedmill_location_Feedmill}}",
+  "cbvmda:owning_party": "{{Gukje_Feedmill_party}}",
+  "cbvmda:informationProvider": "{{Gukje_Feedmill_party}}",
+  "gs1:physicalLocationName": [
+    { "@language": "en-US", "@value": "Gukje Feedmill" }
+  ],
+  "email": "hello@gukjefeed.kr",
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "streetAddress": [
+      { "@language": "en-US", "@value": "45 Gwangbok-ro" }
+    ],
+    "addressLocality": [
+      { "@language": "en-US", "@value": "Jung-gu" }
+    ],
+    "addressRegion": [
+      { "@language": "en-US", "@value": "Busan" }
+    ],
+    "countryCode": "KR"
+  }
+}
+
+### Blue catch area Lookup
+GET {{baseUrl}}/414/{{Gukje_Feedmill_location_Feedmill}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### ------------------------ Haeundae Hatch & Nursery Co. Location
+
+#GLN: urn:gdst:traceability-solution.com:location:loc:dfa01b63-aaaa-4454-b13c-c53d6bdfab43.hatchery
+#Owning Party: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
+#Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
+#@Gukje_Feedmill_location_Feedmill=urn:gdst:traceability-solution.com:loc:8800037.2000012
+@haeundae_farm_location=urn:gdst:traceability-solution.com:loc:8800048.2000012
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Place",
+  "globalLocationNumber": "{{haeundae_farm_location}}",
+  "cbvmda:owning_party": "{{haeundae_farm_party}}",
+  "cbvmda:informationProvider": "{{haeundae_farm_party}}",
+  "gs1:physicalLocationName": [
+    { "@language": "en-US", "@value": "Haeundae Hatchery" }
+  ],
+  "email": "hatch@haeundae-hatch.kr",
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "streetAddress": [
+      { "@language": "en-US", "@value": "123 Haeundae-ro" }
+    ],
+    "addressLocality": [
+      { "@language": "en-US", "@value": "Haeundae-gu" }
+    ],
+    "addressRegion": [
+      { "@language": "en-US", "@value": "Busan" }
+    ],
+    "countryCode": "KR"
+  }
+}
+
+### Blue catch area Lookup
+GET {{baseUrl}}/414/{{haeundae_farm_location}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+
+### ------------------------ Jagalchi Tidal Farm Location
+
+
+
+#GLN: urn:gdst:traceability-solution.com:location:loc:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.farm
+#Owning Party: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
+#Information Provider: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
+
+@jagalchi_tidal_processing_location=urn:gdst:traceability-solution.com:loc:8800057.2000012
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Place",
+  "globalLocationNumber": "{{jagalchi_tidal_processing_location}}",
+  "cbvmda:owning_party": "{{jagalchi_tidal_processing_party}}",
+  "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}",
+  "gs1:physicalLocationName": [
+    { "@language": "en-US", "@value": "Jagalchi Tidal Farm" }
+  ],
+  "email": "farm@jagalchi-salmon.kr",
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "streetAddress": [
+      { "@language": "en-US", "@value": "200 Suyeong-ro" }
+    ],
+    "addressLocality": [
+      { "@language": "en-US", "@value": "Suyeong-gu" }
+    ],
+    "addressRegion": [
+      { "@language": "en-US", "@value": "Busan" }
+    ],
+    "countryCode": "KR"
+  }
+}
+
+
+### Blue catch area Lookup
+GET {{baseUrl}}/414/{{jagalchi_tidal_processing_location}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+### ------------------------ BlueWave Retail  Location
+
+
+#GLN: urn:gdst:traceability-solution.com:location:loc:30bad813-7fb9-43be-8caa-7e0876552eaa.processingplant
+#Owning Party: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
+#Information Provider: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
+
+@bluewave_retailer_loc=urn:gdst:traceability-solution.com:loc:8800067.2000012
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Place",
+  "globalLocationNumber": "{{bluewave_retailer_loc}}",
+  "cbvmda:owning_party": "{{bluewave_retailer_party}}",
+  "cbvmda:informationProvider": "{{bluewave_retailer_party}}",
+  "gs1:physicalLocationName": [
+    { "@language": "en-US", "@value": "BlueWave Retail" }
+  ],
+  "email": "ops@bluewave.kr",
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "streetAddress": [
+      { "@language": "en-US", "@value": "77 Jagalchihaean-ro" }
+    ],
+    "addressLocality": [
+      { "@language": "en-US", "@value": "Jung-gu" }
+    ],
+    "addressRegion": [
+      { "@language": "en-US", "@value": "Busan" }
+    ],
+    "countryCode": "KR"
+  }
+}
+
+
+### Blue catch area Lookup
+GET {{baseUrl}}/414/{{bluewave_retailer_loc}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
