@@ -1,0 +1,436 @@
+
+
+#------Feed Commissioning Event
+# urn:gdst:traceability-solution.com:product:lot:class:7d90c2cd-a801-4e22-acee-82bf27a4844d.feed01.lot01272020
+# urn:gdst:traceability-solution.com:location:loc:7d90c2cd-a801-4e22-acee-82bf27a4844d.feedmill
+#urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
+
+#------Hatching Event
+#urn:gdst:traceability-solution.com:product:class:dfa01b63-aaaa-4454-b13c-c53d6bdfab43.sal-fry.lot01272020
+
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+      {
+        "type": "ObjectEvent",
+        "eventTime": "2020-01-27T00:00:00.0000000-06:00",
+        "eventTimeZoneOffset": "+00:00",
+        "eventID": "urn:uuid:f5469342-4536-476d-bd77-3f47707b5123",
+        "quantityList": [
+          {
+            "epcClass": "urn:gdst:traceability-solution.com:product:lot:class:7d90c2cd-a801-4e22-acee-82bf27a4844d.feed01.lot01272020",
+            "quantity": 2000.0,
+            "uom": "KGM"
+          }
+        ],
+        "bizStep": "commissioning",
+        "disposition": "active",
+        "bizLocation": {
+          "id": "urn:gdst:traceability-solution.com:location:loc:7d90c2cd-a801-4e22-acee-82bf27a4844d.feedmill"
+        },
+        "ilmd": {
+          "gdst:proteinSource": "Soy",
+          "cbvmda:certificationList": {
+            "certification": [
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                "certificationAgency": "Feed Certificate Authority",
+                "certificationStandard": "Feed Certificate Standard",
+                "certificationValue": "SIMP.LPCO.2",
+                "certificationIdentification": "10161781"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                "certificationAgency": "MSC",
+                "certificationStandard": "MSC Chain of Custody",
+                "certificationValue": "MSC_COC_1234567890",
+                "certificationIdentification": "MSC_COC_1234567890"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:humanyPolicy",
+                "certificationAgency": "WHO",
+                "certificationStandard": "WHO Human Decency Policy",
+                "certificationValue": "1234567890",
+                "certificationIdentification": "0987654321"
+              }
+            ]
+          }
+        },
+        "gdst:productOwner": "urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d",
+        "gdst:humanWelfarePolicy": "3P Audit",
+        "cbvmda:informationProvider": "urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d"
+      }
+    ]
+  }
+}
+
+
+#------Hatching Event
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+      {
+        "type": "ObjectEvent",
+        "eventTime": "2020-01-27T00:00:00.0000000-06:00",
+        "eventTimeZoneOffset": "+00:00",
+        "eventID": "urn:uuid:a2bcc6df-cfdd-42ae-8fc4-bae596d03c11",
+        "epcList": [],
+        "action": "ADD",
+        "bizStep": "urn:gdst:bizstep:hatching",
+        "disposition": "active",
+        "bizLocation": {
+          "id": "urn:gdst:traceability-solution.com:location:loc:dfa01b63-aaaa-4454-b13c-c53d6bdfab43.hatchery"
+        },
+        "quantityList": [
+          {
+            "epcClass": "urn:gdst:traceability-solution.com:product:class:dfa01b63-aaaa-4454-b13c-c53d6bdfab43.sal-fry.lot01272020",
+            "quantity": 250.0,
+            "uom": "KGM"
+          }
+        ],
+        "ilmd": {
+          "cbvmda:certificationList": {
+            "certification": [
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                "certificationAgency": "Feed Certificate Authority",
+                "certificationStandard": "Feed Certificate Standard",
+                "certificationValue": "SIMP.LPCO.2",
+                "certificationIdentification": "10161781"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                "certificationAgency": "MSC",
+                "certificationStandard": "MSC Chain of Custody",
+                "certificationValue": "MSC_COC_1234567890",
+                "certificationIdentification": "MSC_COC_1234567890"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:humanyPolicy",
+                "certificationAgency": "WHO",
+                "certificationStandard": "WHO Human Decency Policy",
+                "certificationValue": "1234567890",
+                "certificationIdentification": "0987654321"
+              }
+            ]
+          },
+          "gdst:broodstockSources": "Domestic"
+        },
+        "gdst:productOwner": "urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43",
+        "gdst:humanWelfarePolicy": "3P Audit",
+        "cbvmda:informationProvider": "urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43"
+      }
+    ]
+  }
+}
+
+
+
+#------Farm Harvest Event --3 
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+      {
+        "type": "TransformationEvent",
+        "eventTime": "2020-01-28T00:00:00.0000000-06:00",
+        "eventTimeZoneOffset": "+00:00",
+        "eventID": "urn:uuid:a32bda05-f6b6-4755-b0e8-9cdba474ee8d",
+        "inputQuantityList": [
+          {
+            "epcClass": "urn:gdst:traceability-solution.com:product:lot:class:dfa01b63-aaaa-4454-b13c-c53d6bdfab43.sal-fry.lot01272020",
+            "quantity": 250.0,
+            "uom": "KGM"
+          },
+          {
+            "epcClass": "urn:gdst:traceability-solution.com:product:lot:class:7d90c2cd-a801-4e22-acee-82bf27a4844d.feed01.lot01272020",
+            "quantity": 2000.0,
+            "uom": "KGM"
+          }
+        ],
+        "outputQuantityList": [
+          {
+            "epcClass": "urn:gdst:traceability-solution.com:product:lot:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole.lot01282020",
+            "quantity": 1000.0,
+            "uom": "KGM"
+          }
+        ],
+        "bizStep": "commissioning",
+        "disposition": "active",
+        "bizLocation": {
+          "id": "urn:gdst:traceability-solution.com:location:loc:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.farm"
+        },
+        "ilmd": {
+          "gdst:aquacultureMethod": "Cage and Pen",
+          "cbvmda:productionMethodForFishAndSeafoodCode": "AQUACULTURE",
+          "cbvmda:certificationList": {
+            "certification": [
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                "certificationAgency": "Farm Certificate Authority",
+                "certificationStandard": "Farm Certificate Standard",
+                "certificationValue": "SIMP.LPCO.2",
+                "certificationIdentification": "10161781"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                "certificationAgency": "MSC",
+                "certificationStandard": "MSC Chain of Custody",
+                "certificationValue": "MSC_COC_1234567890",
+                "certificationIdentification": "MSC_COC_1234567890"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                "certificationAgency": "WHO",
+                "certificationStandard": "WHO Human Decency Policy",
+                "certificationValue": "1234567890",
+                "certificationIdentification": "0987654321"
+              }
+            ]
+          }
+        },
+        "gdst:productOwner": "urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3",
+        "gdst:humanWelfarePolicy": "WHO Human Decency Policy",
+        "cbvmda:informationProvider": "urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3"
+      }
+    ]
+  }
+}
+
+
+#------Shipping Event --4
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+        {
+            "type": "ObjectEvent",
+            "eventTime": "2023-02-18T00:00:00.0000000+00:00",
+            "eventTimeZoneOffset": "+00:00",
+            "eventID": "urn:uuid:d1e9ff8e-30c8-4ea0-b08e-26b1859ccc30",
+            "epcList": [],
+            "action": "OBSERVE",
+            "bizStep": "shipping",
+            "bizLocation": {
+                "id": "urn:gdst:traceability-solution.com:location:loc:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.farm"
+            },
+            "quantityList": [
+                {
+                    "epcClass": "urn:gdst:traceability-solution.com:product:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole",
+                    "quantity": 45860.0,
+                    "uom": "KGM"
+                }
+            ],
+            "sourceList": [
+                {
+                    "type": "owning_party",
+                    "source": "urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3"
+                },
+                {
+                    "type": "urn:epcglobal:cbv:sdt:location",
+                    "source": "urn:gdst:traceability-solution.com:location:loc:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.farm"
+                }
+            ],
+            "destinationList": [
+                {
+                    "type": "owning_party",
+                    "destination": "urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa"
+                },
+                {
+                    "type": "urn:epcglobal:cbv:sdt:location",
+                    "destination": "urn:gdst:traceability-solution.com:location:loc:30bad813-7fb9-43be-8caa-7e0876552eaa.processingplant"
+                }
+            ],
+            "gdst:productOwner": "urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3",
+            "cbvmda:certificationList": {
+                "certification": [
+                    {
+                        "gdst:certificationType": "urn:gdst:certtype:harvestcoc"
+                    }
+                ]
+            },
+            "cbvmda:informationProvider": "urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3"
+        }
+      ]
+    }
+}
+
+
+#------Processing Event --5
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+      "type": "EPCISDocument",
+      "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+      "schemaVersion": "2.0",
+      "sender": "test",
+      "receiver": "test",
+      "instanceIdentifier": "9999",
+      "epcisBody": {
+        "eventList": [
+            {
+                "type": "TransformationEvent",
+                "eventTime": "2023-01-27T16:00:00.0000000+00:00",
+                "eventTimeZoneOffset": "+00:00",
+                "eventID": "urn:uuid:37ffc013-e4b1-4555-b9e7-7dd6b0f98a0e",
+                "inputQuantityList": [
+                    {
+                        "epcClass": "urn:gdst:traceability-solution.com:product:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole",
+                        "quantity": 51650.81131932347,
+                        "uom": "KGM"
+                    }
+                ],
+                "outputQuantityList": [
+                    {
+                        "epcClass": "urn:gdst:traceability-solution.com:product:class:dfa01b63-aaaa-4454-b13c-c53d6bdfab43.sal-fry",
+                        "quantity": 37455.0,
+                        "uom": "KGM"
+                    }
+                ],
+                "bizStep": "commissioning",
+                "bizLocation": {
+                    "id": "urn:gdst:traceability-solution.com:location:loc:30bad813-7fb9-43be-8caa-7e0876552eaa.processingplant"
+                },
+                "ilmd": {
+                    "gdst:processingType": "complete",
+                    "cbvmda:countryOfOrigin": "EC",
+                    "cbvmda:certificationList": {
+                       "certification": [
+                           {
+                               "gdst:certificationType": "urn:gdst:certtype:harvestcoc"
+                           },
+                           {
+                               "gdst:certificationType": "urn:gdst:certtype:humanPolicy"
+                           }
+                        ]
+                       }
+                      },
+                 "gdst:productOwner": "urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa",
+                 "gdst:humanWelfarePolicy": "3P Audit",
+                 "cbvmda:informationProvider": "urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa"
+                }
+          ]
+      }
+}
+
+
+#----Packing
+
+{
+    "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "creationDate":"2005-07-11T11:30:47.0Z",
+  "epcisBody": {
+   "eventList": [
+     {
+                  "type": "AggregationEvent",
+		  "eventID": "urn:uuid:591458db-d96e-4466-a4bd-1a30d625fd41",
+		  "eventTime": "2013-06-08T14:58:56.591Z",
+		  "eventTimeZoneOffset": "+02:00",
+		  "parentID":"urn:epc:id:sscc:08600031303.0003",
+		  "childEPCs": [
+                    "urn:gdst:traceability-solution.com:product:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole"
+                  ],
+		  "action": "ADD",
+		  "bizStep": "packing",
+		  "disposition": "active",
+		  "readPoint": {"id": "urn:gdst:traceability-solution.com:location:loc:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.farm"},
+		  "bizLocation": {"id": "urn:gdst:traceability-solution.com:location:loc:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.farm"},
+		  "childQuantityList": [
+		  	{"epcClass":"urn:gdst:traceability-solution.com:product:lot:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole.12345","quantity":10, "uom":"KGM"},
+		  	{"epcClass":"urn:gdst:traceability-solution.com:product:lot:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole.67890","quantity":200.5,"uom":"KGM"}
+		  ]
+     }
+   ]
+  }
+}

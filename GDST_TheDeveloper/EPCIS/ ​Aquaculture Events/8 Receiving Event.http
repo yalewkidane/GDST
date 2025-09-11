@@ -1,0 +1,79 @@
+#Receiving Event
+#When a product is officially accepted at a new location, the event is recorded as a receiving event. 
+#Receiving events are indicated by the type of Object, the action OBSERVE, and the business step of receiving.
+
+#Below is an example of a receiving event whose master data is defined in the Aquaculture Master Data article.
+
+#See Event Sources and Destinations to learn about different source list and destination values.
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+        "type": "ObjectEvent",
+        "eventTime": "2023-01-27T18:00:00.0000000+00:00",
+        "eventTimeZoneOffset": "+00:00",
+        "eventID": "urn:uuid:4a3109c2-64b2-44d1-acf5-bb19002113c1",
+        "epcList": [],
+        "action": "OBSERVE",
+        "bizStep": "receiving",
+        "bizLocation": {
+            "id": "urn:gdst:traceability-solution.com:location:loc:30bad813-7fb9-43be-8caa-7e0876552eaa.processingplant"
+        },
+        "quantityList": [
+            {
+                "epcClass": "urn:gdst:traceability-solution.com:product:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole",
+                "quantity": 45860.0,
+                "uom": "KGM"
+            }
+        ],
+        "sourceList": [
+            {
+                "type": "owning_party",
+                "source": "urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3"
+            },
+            {
+                "type": "urn:epcglobal:cbv:sdt:location",
+                "source": "urn:gdst:traceability-solution.com:location:loc:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.farm"
+            }
+        ],
+        "destinationList": [
+            {
+                "type": "owning_party",
+                "destination": "urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa"
+            },
+            {
+                "type": "urn:epcglobal:cbv:sdt:location",
+                "destination": "urn:gdst:traceability-solution.com:location:loc:30bad813-7fb9-43be-8caa-7e0876552eaa.processingplant"
+            }
+        ],
+        "gdst:productOwner": "urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa",
+        "cbvmda:certificationList": {
+            "certification": [
+                {
+                    "gdst:certificationType": "urn:gdst:certtype:humanPolicy"
+                },
+                {
+                    "gdst:certificationType": "urn:gdst:certtype:harvestcoc"
+                }
+            ]
+        },
+        "cbvmda:informationProvider": "urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa"
+    }
+}

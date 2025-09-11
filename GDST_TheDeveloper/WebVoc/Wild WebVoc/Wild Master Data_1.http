@@ -1,0 +1,350 @@
+
+@apiKey = 62237afe89d3fbec955b34f3b9b447948a612c70b591cd5b5837d3aad0a6ac48
+@port=24240
+@baseUrl=http://210.113.134.235:{{port}}/gs1webvoc
+
+
+### -------------------------------------------------------------------------------------------------------- Product Definitions 
+###  Yellowfin Tuna
+
+#GTIN: urn:gdst:traceability-solution.com:product:class:a1b2c3d4-27e8-4a9a-8f1a-22d1f3b4c5d6.yft
+@product_tuna=urn:gdst:traceability-solution.com:product:class:8800026.2000001
+#Owning Party: urn:gdst:traceability-solution.com:party:9e6b7f21-2a0d-4c2a-9b4a-7a0e5b7d3f21
+#Information Provider: urn:gdst:traceability-solution.com:party:9e6b7f21-2a0d-4c2a-9b4a-7a0e5b7d3f21
+@blue_vessel_operator_party=urn:gdst:traceability-solution.com:party:8800026.2000002
+
+#Species Scientific Name: Thunnus albacares
+#Species Purpose Code: YFT
+
+### posting Yellowfin Tuna
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Product",
+  "gtin": "{{product_tuna}}",
+  "productName": [
+    { "@language": "en-US", "@value": "Yellowfin Tuna" }
+  ],
+  "cbvmda:owning_party": "{{blue_vessel_operator_party}}",
+  "cbvmda:informationProvider":  "{{blue_vessel_operator_party}}",
+  "cbvmda:speciesForFisheryStatisticsPurposesName": ["Thunnus albacares"],
+  "cbvmda:speciesForFisheryStatisticsPurposesCode": ["YFT"]
+}
+
+### Yellowfin Tuna Product Lookup
+GET {{baseUrl}}/01/{{product_tuna}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+### Frozen Yellowfin Tuna
+@product_tuna_frozen=urn:gdst:traceability-solution.com:product:class:8800026.2000021
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Product",
+  "gtin": "{{product_tuna_frozen}}",
+  "productName": [
+    { "@language": "en-US", "@value": "Yellowfin Tuna" }
+  ],
+  "cbvmda:owning_party": "{{blue_vessel_operator_party}}",
+  "cbvmda:informationProvider":  "{{blue_vessel_operator_party}}",
+  "cbvmda:speciesForFisheryStatisticsPurposesName": ["Thunnus albacares"],
+  "cbvmda:speciesForFisheryStatisticsPurposesCode": ["YFT"]
+}
+
+### Yellowfin Tuna Product Lookup
+GET {{baseUrl}}/01/{{product_tuna_frozen}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### -------------------------------------------------------------------------------------------------------- Organization Definitions 
+
+#Below are examples of master data for organization definitions. [Blue Current Fisheries Co.]
+
+#PGLN: urn:gdst:traceability-solution.com:party:9e6b7f21-2a0d-4c2a-9b4a-7a0e5b7d3f21
+#Information Provider: urn:gdst:traceability-solution.com:party:9e6b7f21-2a0d-4c2a-9b4a-7a0e5b7d3f21
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Organization",
+  "globalLocationNumber": "{{blue_vessel_operator_party}}",
+  "cbvmda:informationProvider": "{{blue_vessel_operator_party}}",
+  "organizationName": [
+    { "@language": "en-US", "@value": "Blue Current Fisheries Co." }
+  ]
+}
+
+
+### Blue Current Fisheries Organization Lookup
+GET {{baseUrl}}/417/{{blue_vessel_operator_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+### Jagalchi Tender & Supply Ltd. [Processor 2]
+
+#PGLN: urn:gdst:traceability-solution.com:party:4d7b8a10-5f3c-4b73-9a4d-2b1e8c9f0a55
+#Information Provider: urn:gdst:traceability-solution.com:party:4d7b8a10-5f3c-4b73-9a4d-2b1e8c9f0a55
+@processor_jagalchi_party=urn:gdst:traceability-solution.com:party:8800026.3000003
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Organization",
+  "globalLocationNumber": "{{processor_jagalchi_party}}",
+  "cbvmda:informationProvider": "{{processor_jagalchi_party}}",
+  "organizationName": [
+    { "@language": "en-US", "@value": "Jagalchi Tender & Supply Ltd." }
+  ]
+}
+
+### Jagalchi Tender & Supply Organization Lookup
+GET {{baseUrl}}/417/{{processor_jagalchi_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### Yeongdo Ocean Processing Co. [Processor 2]
+
+@processor_Yeongdo_party=urn:gdst:traceability-solution.com:party:8800026.4000004
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Organization",
+  "globalLocationNumber": "{{processor_Yeongdo_party}}",
+  "cbvmda:informationProvider": "{{processor_Yeongdo_party}}",
+  "organizationName": [
+    { "@language": "en-US", "@value": "Yeongdo Ocean Processing Co." }
+  ]
+}
+
+
+### Yeongdo Ocean Processing Organization Lookup
+GET {{baseUrl}}/417/{{processor_Yeongdo_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+### ------------------------------------------------------------------------------------------------------------------------------------Place Definitions
+
+#FV Blue Current (Fishing Vessel) [Cath Area ]
+@blue_vessel_operator_location_catcharea=urn:gdst:traceability-solution.com:loc:8800026.2000012
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Place",
+  "globalLocationNumber": "{{blue_vessel_operator_location_catcharea}}",
+  "cbvmda:owning_party": "{{blue_vessel_operator_party}}",
+  "cbvmda:informationProvider": "{{blue_vessel_operator_party}}",
+  "gs1:physicalLocationName": [
+    { "@language": "en-US", "@value": "FV Blue Current" }
+  ],
+  "cbvmda:vesselFlagState": "KR",
+  "cbvmda:vesselID": "KRPUS-FV-0001",
+  "cbvmda:vesselName": "FV Blue Current",
+  "gdst:imoNumber": "IMO.9876543"
+}
+
+
+### Blue catch area Lookup
+GET {{baseUrl}}/414/{{blue_vessel_operator_location_catcharea}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### Blue Current Fisheries Co. [Port Location]
+@blue_vessel_operator_location_port=urn:gdst:traceability-solution.com:loc:8800026.2000022
+
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Place",
+  "globalLocationNumber": "{{blue_vessel_operator_location_port}}",
+  "cbvmda:owning_party": "{{blue_vessel_operator_party}}",
+  "cbvmda:informationProvider": "{{blue_vessel_operator_party}}",
+  "gs1:physicalLocationName": [
+    { "@language": "en-US", "@value": "Port of Busan" }
+  ],
+  "email": "portops@busanport.kr",
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "streetAddress": [
+      { "@language": "en-US", "@value": "45 Busanhaean-ro" }
+    ],
+    "addressLocality": [
+      { "@language": "en-US", "@value": "Yeongdo-gu" }
+    ],
+    "addressRegion": [
+      { "@language": "en-US", "@value": "Busan" }
+    ],
+    "countryCode": "KR"
+  },
+  "cbvmda:unloadingPort": "KRPUS"
+}
+
+
+### Blue catch area Lookup
+GET {{baseUrl}}/414/{{blue_vessel_operator_location_port}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### Yeongdo Processor (Plant) [Lion Plant Location]
+
+@processor_Yeongdo_location_lionPlant=urn:gdst:traceability-solution.com:party:8800026.4000004
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Place",
+  "globalLocationNumber": "{{processor_Yeongdo_location_lionPlant}}",
+  "cbvmda:owning_party": "{{processor_Yeongdo_party}}",
+  "cbvmda:informationProvider": "{{processor_Yeongdo_party}}",
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "streetAddress": [
+      { "@language": "en-US", "@value": "120 Taejong-ro" }
+    ],
+    "addressLocality": [
+      { "@language": "en-US", "@value": "Yeongdo-gu" }
+    ],
+    "addressRegion": [
+      { "@language": "en-US", "@value": "Busan" }
+    ],
+    "countryCode": "KR"
+  }
+}
+
+### Yeongdo Processor (Plant) Location Lookup
+GET {{baseUrl}}/414/{{processor_Yeongdo_location_lionPlant}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### Jagalchi Runner [Canner Location]
+
+@processor_jagalchi_location_canner=urn:gdst:traceability-solution.com:loc:8800026.3000003
+
+POST {{baseUrl}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+[
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbvmda:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab/"
+  },
+  "@type": "gs1:Place",
+  "globalLocationNumber": "{{processor_jagalchi_location_canner}}",
+  "cbvmda:owning_party": "{{processor_jagalchi_party}}",
+  "cbvmda:informationProvider": "{{processor_jagalchi_party}}",
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "streetAddress": [
+      { "@language": "en-US", "@value": "52 Jagalchihaean-ro" }
+    ],
+    "addressLocality": [
+      { "@language": "en-US", "@value": "Jung-gu" }
+    ],
+    "addressRegion": [
+      { "@language": "en-US", "@value": "Busan" }
+    ],
+    "countryCode": "KR"
+  }
+}]
+
+
+### Jagalchi Tender & Supply Organization Lookup
+GET {{baseUrl}}/414/{{processor_jagalchi_location_canner}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+
+
+
+

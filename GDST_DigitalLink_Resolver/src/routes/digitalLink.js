@@ -139,7 +139,7 @@ router.get('/:keyType/:identifier', async (req, res, next) => {
 
     if (digitalLinks.length === 0) {
       return res.status(404).json({
-        error: 'Not Found',
+        error: 'Oliot DL Not Found',
         message: 'No digital links found for the specified identifier'
       });
     }
@@ -240,7 +240,7 @@ router.put('/:id', async (req, res, next) => {
 
     if (!updatedDigitalLink) {
       return res.status(404).json({
-        error: 'Not Found',
+        error: 'Oliot DL  Not Found',
         message: 'Digital link not found'
       });
     }
@@ -263,7 +263,7 @@ router.delete('/:id', async (req, res, next) => {
 
     if (!deletedDigitalLink) {
       return res.status(404).json({
-        error: 'Not Found',
+        error: 'Oliot DL  Not Found',
         message: 'Digital link not found'
       });
     }

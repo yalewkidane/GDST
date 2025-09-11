@@ -1,5 +1,7 @@
 # GDST Digital Link Resolver
 
+docker compose up -d --build
+
 A Node.js application with MongoDB backend that provides a Digital Link Resolver service for GDST (Global Dialogue on Seafood Traceability) use cases.
 
 ## Features

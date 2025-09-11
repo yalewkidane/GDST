@@ -20,6 +20,8 @@ RUN adduser -S nodejs -u 1001
 
 # Change ownership of app directory
 RUN chown -R nodejs:nodejs /app
+# Install curl for the compose healthcheck
+RUN apk add --no-cache curl
 USER nodejs
 
 # Expose port

@@ -1,0 +1,19 @@
+https://capability-service.traceability-dialogue.org/digitallink/01/urn:gdst:example.org:product:class:processor.2?linkType=gs1:masterData 
+[
+    {
+        "link": "https://capability-service.traceability-dialogue.org/masterdata/urn:gdst:example.org:product:class:processor.2",
+        "title": "",
+        "linkType": "gs1:masterData",
+        "ianaLanguage": "",
+        "context": "",
+        "mimeType": "",
+        "active": false,
+        "fwqs": false,
+        "defaultLinkType": false,
+        "defaultIanaLanguage": false,
+        "defaultContext": false,
+        "defaultMimeType": false,
+        "identifier": "",
+        "authRequired": true
+    }
+]

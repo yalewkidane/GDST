@@ -1,0 +1,201 @@
+
+### GDST Digital Link Resolver API Fro Master Data Tests
+
+
+@apiKey = 62237afe89d3fbec955b34f3b9b447948a612c70b591cd5b5837d3aad0a6ac48
+@SOLUTION-PROVIDER-URL=http://210.113.134.235:24241/digitallink
+
+
+
+### Busan Processer Location 
+POST http://localhost:4040/digitallink/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/urn:gdst:example.org:location:loc:processor.plant1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/urn:gdst:example.org:location:loc:processor.plant1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/414/urn:gdst:example.org:location:loc:processor.plant1?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### Busan Processer Party 
+POST http://localhost:4040/digitallink/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/urn:gdst:example.org:party:processor.1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/urn:gdst:example.org:party:processor.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/417/urn:gdst:example.org:party:processor.1?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+
+
+### Busan Improrter Location 
+POST http://localhost:4040/digitallink/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/urn:gdst:example.org:location:loc:importer.123",
+  "itemDescription": "Busan Improrters Co.",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/urn:gdst:example.org:location:loc:importer.123",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/414/urn:gdst:example.org:location:loc:importer.123?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### Busan Importer Party 
+POST http://localhost:4040/digitallink/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/urn:gdst:example.org:party:importer.1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/urn:gdst:example.org:party:importer.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/417/urn:gdst:example.org:party:importer.1?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+
+
+### Product Class   
+POST http://localhost:4040/digitallink/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/urn:gdst:example.org:product:class:processor.2",
+  "itemDescription": "Thunnus albacares",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/urn:gdst:example.org:product:class:processor.2",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/01/urn:gdst:example.org:product:class:3processor.2?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}

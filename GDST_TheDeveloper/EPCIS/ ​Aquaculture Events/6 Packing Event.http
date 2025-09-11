@@ -1,0 +1,50 @@
+#When multiple physical products are grouped into a single higher-level unit, such as grouping cases onto a pallet, 
+#the event is recorded as an aggregation event. Aggregation events are indicated by the type AggregationEvent, 
+#the action of add, the business step of packing and the disposition of active.
+
+#Below is an example of an aggregation event whose master data is defined in the Aquaculture Master Data article.
+
+
+{
+    "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "creationDate":"2005-07-11T11:30:47.0Z",
+  "epcisBody": {
+   "eventList": [
+     {
+                  "type": "AggregationEvent",
+		  "eventID": "urn:uuid:591458db-d96e-4466-a4bd-1a30d625fd41",
+		  "eventTime": "2013-06-08T14:58:56.591Z",
+		  "eventTimeZoneOffset": "+02:00",
+		  "parentID":"urn:epc:id:sscc:08600031303.0003",
+		  "childEPCs": [
+                    "urn:gdst:traceability-solution.com:product:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole"
+                  ],
+		  "action": "ADD",
+		  "bizStep": "packing",
+		  "disposition": "active",
+		  "readPoint": {"id": "urn:gdst:traceability-solution.com:location:loc:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.farm"},
+		  "bizLocation": {"id": "urn:gdst:traceability-solution.com:location:loc:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.farm"},
+		  "childQuantityList": [
+		  	{"epcClass":"urn:gdst:traceability-solution.com:product:lot:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole.12345","quantity":10, "uom":"KGM"},
+		  	{"epcClass":"urn:gdst:traceability-solution.com:product:lot:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole.67890","quantity":200.5,"uom":"KGM"}
+		  ]
+     }
+   ]
+  }
+}

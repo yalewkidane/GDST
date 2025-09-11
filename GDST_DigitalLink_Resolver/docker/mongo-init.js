@@ -15,7 +15,7 @@ db.digitallinks.createIndex({ "authRequired": 1 });
 // Insert sample data
 db.digitallinks.insertMany([
   {
-    "identifier": "urn:epc:id:sscc:08600031303.0003",
+    "identifier": "urn:epc:id:sscc:08600031303.4545",
     "linkType": "gs1:epcis",
     "link": "https://capability-service.traceability-dialogue.org/epcis",
     "title": "",
@@ -33,7 +33,7 @@ db.digitallinks.insertMany([
     "updatedAt": new Date()
   },
   {
-    "identifier": "urn:epc:id:sscc:08600031303.0003",
+    "identifier": "urn:epc:id:sscc:08600031303.4545",
     "linkType": "gs1:masterData",
     "link": "https://master-data-service.traceability-dialogue.org/masterdata",
     "title": "Master Data Service",

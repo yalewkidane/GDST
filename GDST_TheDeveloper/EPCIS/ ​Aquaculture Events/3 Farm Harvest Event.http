@@ -1,0 +1,101 @@
+
+
+#               Farm Harvest Event
+
+# The farm harvest event is used to record the harvest of seafood products from an aquaculture facility. 
+#This event is indicated with a business step urn:gdst:bizstep:farmHarvest and a disposition of active. 
+#This is a transformation type event with the inputs of the event being the products used to stock the aquaculture 
+#facility and the feed used. The outputs of the event are products harvested from the aquaculture facility.
+
+#EPCIS 2.0 - JSON-LD - GDST 1.2
+
+### 
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+      {
+        "type": "TransformationEvent",
+        "eventTime": "2020-01-28T00:00:00.0000000-06:00",
+        "eventTimeZoneOffset": "+00:00",
+        "eventID": "urn:uuid:a32bda05-f6b6-4755-b0e8-9cdba474ee8d",
+        "inputQuantityList": [
+          {
+            "epcClass": "urn:gdst:traceability-solution.com:product:lot:class:dfa01b63-aaaa-4454-b13c-c53d6bdfab43.sal-fry.lot01272020",
+            "quantity": 250.0,
+            "uom": "KGM"
+          },
+          {
+            "epcClass": "urn:gdst:traceability-solution.com:product:lot:class:7d90c2cd-a801-4e22-acee-82bf27a4844d.feed01.lot01272020",
+            "quantity": 2000.0,
+            "uom": "KGM"
+          }
+        ],
+        "outputQuantityList": [
+          {
+            "epcClass": "urn:gdst:traceability-solution.com:product:lot:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole.lot01282020",
+            "quantity": 1000.0,
+            "uom": "KGM"
+          }
+        ],
+        "bizStep": "commissioning",
+        "disposition": "active",
+        "bizLocation": {
+          "id": "urn:gdst:traceability-solution.com:location:loc:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.farm"
+        },
+        "ilmd": {
+          "gdst:aquacultureMethod": "Cage and Pen",
+          "cbvmda:productionMethodForFishAndSeafoodCode": "AQUACULTURE",
+          "cbvmda:certificationList": {
+            "certification": [
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                "certificationAgency": "Farm Certificate Authority",
+                "certificationStandard": "Farm Certificate Standard",
+                "certificationValue": "SIMP.LPCO.2",
+                "certificationIdentification": "10161781"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                "certificationAgency": "MSC",
+                "certificationStandard": "MSC Chain of Custody",
+                "certificationValue": "MSC_COC_1234567890",
+                "certificationIdentification": "MSC_COC_1234567890"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                "certificationAgency": "WHO",
+                "certificationStandard": "WHO Human Decency Policy",
+                "certificationValue": "1234567890",
+                "certificationIdentification": "0987654321"
+              }
+            ]
+          }
+        },
+        "gdst:productOwner": "urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3",
+        "gdst:humanWelfarePolicy": "WHO Human Decency Policy",
+        "cbvmda:informationProvider": "urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3"
+      }
+    ]
+  }
+}
+
+
+### My Implementation Notes

@@ -1,0 +1,163 @@
+#      Feed Mill Event
+#Feeding in aquaculture have at least two processes: feed transformation and feed input into lifecycle events. 
+#The Feed Creation / Transformation step is critical to tracing the feed ingredients especially if there are 
+#wild-caught origins to the protein source. Feed is then input into lifecycle events as a transformation step.
+
+#    Feed Mill Transformation Event
+#This step is critical in connecting feed ingredients to harvested products from a seafood facility. 
+#Here we will define a transformation event defines when the feed was produced by a feed mill. 
+#The business step will be commissioning and the disposition will be active from the standard CBV 1.2.
+
+#To determine that this is a feed mill event, we use "Event Profiling" to analyze the event. 
+#This means that we check the transformation event for the existence of the "gdst:proteinSource" event.
+
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+      {
+        "type": "TransformationEvent",
+        "eventTime": "2020-01-27T00:00:00.0000000-06:00",
+        "eventTimeZoneOffset": "+00:00",
+        "eventID": "urn:uuid:f5469342-4536-476d-bd77-3f47707b5941",
+        "inputQuantityList": [
+          {
+            "epcClass": "urn:gdst:traceability-solution.com:product:lot:class:7d90c2cd-a801-4e22-acee-82bf27a4844d.vegetables.lot12232019",
+            "quantity": 2500.0,
+            "uom": "KGM"
+          }
+        ],
+        "outputQuantityList": [
+          {
+            "epcClass": "urn:gdst:traceability-solution.com:product:lot:class:7d90c2cd-a801-4e22-acee-82bf27a4844d.feed01.lot01272020",
+            "quantity": 2000.0,
+            "uom": "KGM"
+          }
+        ],
+        "bizStep": "commissioning",
+        "disposition": "active",
+        "bizLocation": {
+          "id": "urn:gdst:traceability-solution.com:location:loc:7d90c2cd-a801-4e22-acee-82bf27a4844d.feedmill"
+        },
+        "ilmd": {
+          "gdst:proteinSource": "Soy",
+          "cbvmda:certificationList": {
+            "certification": [
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                "certificationAgency": "Feed Certificate Authority",
+                "certificationStandard": "Feed Certificate Standard",
+                "certificationValue": "SIMP.LPCO.2",
+                "certificationIdentification": "10161781"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                "certificationAgency": "MSC",
+                "certificationStandard": "MSC Chain of Custody",
+                "certificationValue": "MSC_COC_1234567890",
+                "certificationIdentification": "MSC_COC_1234567890"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:humanyPolicy",
+                "certificationAgency": "WHO",
+                "certificationStandard": "WHO Human Decency Policy",
+                "certificationValue": "1234567890",
+                "certificationIdentification": "0987654321"
+              }
+            ]
+          }
+        },
+        "gdst:productOwner": "urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d",
+        "gdst:humanWelfarePolicy": "3P Audit",
+        "cbvmda:informationProvider": "urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d"
+      }
+    ]
+  }
+}
+
+
+
+### Feed Mill Object Event
+#This event is used when the inputs to the feed are unknown. In this case, we need to use the OBJECT - ADD event that does not require 
+#inputs like the TRANSFORMATION event.
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+      {
+        "type": "ObjectEvent",
+        "eventTime": "2020-01-27T00:00:00.0000000-06:00",
+        "eventTimeZoneOffset": "+00:00",
+        "eventID": "urn:uuid:f5469342-4536-476d-bd77-3f47707b5123",
+        "quantityList": [
+          {
+            "epcClass": "urn:gdst:traceability-solution.com:product:lot:class:7d90c2cd-a801-4e22-acee-82bf27a4844d.feed01.lot01272020",
+            "quantity": 2000.0,
+            "uom": "KGM"
+          }
+        ],
+        "bizStep": "commissioning",
+        "disposition": "active",
+        "bizLocation": {
+          "id": "urn:gdst:traceability-solution.com:location:loc:7d90c2cd-a801-4e22-acee-82bf27a4844d.feedmill"
+        },
+        "ilmd": {
+          "gdst:proteinSource": "Soy",
+          "cbvmda:certificationList": {
+            "certification": [
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                "certificationAgency": "Feed Certificate Authority",
+                "certificationStandard": "Feed Certificate Standard",
+                "certificationValue": "SIMP.LPCO.2",
+                "certificationIdentification": "10161781"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                "certificationAgency": "MSC",
+                "certificationStandard": "MSC Chain of Custody",
+                "certificationValue": "MSC_COC_1234567890",
+                "certificationIdentification": "MSC_COC_1234567890"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:humanyPolicy",
+                "certificationAgency": "WHO",
+                "certificationStandard": "WHO Human Decency Policy",
+                "certificationValue": "1234567890",
+                "certificationIdentification": "0987654321"
+              }
+            ]
+          }
+        },
+        "gdst:productOwner": "urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d",
+        "gdst:humanWelfarePolicy": "3P Audit",
+        "cbvmda:informationProvider": "urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d"
+      }
+    ]
+  }
+}
+

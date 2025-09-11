@@ -1,0 +1,76 @@
+#Processing Event
+#When a raw materials or products are transformed into a different state or product, the event is recorded a processing event. 
+#Processing events are indicated by the business step of commissioning and the type of TransformationEvent. 
+#Processing events also include a processing type KDE which indicates what kind of transformation event is taking place. 
+#The processing type KDE is a GDST extension that accepts the values GENERAL or CLEANING.
+
+#Below is an example of a processing event whose master data defined in the Aquaculture Master Data article.
+
+#See Aggregation vs Commingling vs Processing to learn about the differences between aggregation, commingling, and processing events.
+
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+      "type": "EPCISDocument",
+      "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+      "schemaVersion": "2.0",
+      "sender": "test",
+      "receiver": "test",
+      "instanceIdentifier": "9999",
+      "epcisBody": {
+        "eventList": [
+            {
+                "type": "TransformationEvent",
+                "eventTime": "2023-01-27T16:00:00.0000000+00:00",
+                "eventTimeZoneOffset": "+00:00",
+                "eventID": "urn:uuid:37ffc013-e4b1-4555-b9e7-7dd6b0f98a0e",
+                "inputQuantityList": [
+                    {
+                        "epcClass": "urn:gdst:traceability-solution.com:product:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole",
+                        "quantity": 51650.81131932347,
+                        "uom": "KGM"
+                    }
+                ],
+                "outputQuantityList": [
+                    {
+                        "epcClass": "urn:gdst:traceability-solution.com:product:class:dfa01b63-aaaa-4454-b13c-c53d6bdfab43.sal-fry",
+                        "quantity": 37455.0,
+                        "uom": "KGM"
+                    }
+                ],
+                "bizStep": "commissioning",
+                "bizLocation": {
+                    "id": "urn:gdst:traceability-solution.com:location:loc:30bad813-7fb9-43be-8caa-7e0876552eaa.processingplant"
+                },
+                "ilmd": {
+                    "gdst:processingType": "complete",
+                    "cbvmda:countryOfOrigin": "EC",
+                    "cbvmda:certificationList": {
+                       "certification": [
+                           {
+                               "gdst:certificationType": "urn:gdst:certtype:harvestcoc"
+                           },
+                           {
+                               "gdst:certificationType": "urn:gdst:certtype:humanPolicy"
+                           }
+                        ]
+                       }
+                      },
+                 "gdst:productOwner": "urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa",
+                 "gdst:humanWelfarePolicy": "3P Audit",
+                 "cbvmda:informationProvider": "urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa"
+                }
+          ]
+      }
+}

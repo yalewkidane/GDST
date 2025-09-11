@@ -1,9 +1,8 @@
 const authMiddleware = (req, res, next) => {
   const apiKeyHeader = process.env.API_KEY_HEADER || 'X-API-Key';
   const apiKey = req.headers[apiKeyHeader.toLowerCase()];
+  const expectedApiKey = process.env.API_KEY;
 
-  // For this example, we'll accept any API key that's provided
-  // In production, you would validate against a database of valid keys
   if (!apiKey) {
     return res.status(401).json({
       error: 'API key required',
@@ -11,8 +10,14 @@ const authMiddleware = (req, res, next) => {
     });
   }
 
-  // Store the API key in the request for potential logging
-  req.apiKey = apiKey;
+  if (apiKey !== expectedApiKey) {
+    return res.status(403).json({
+      error: 'Invalid API key',
+      message: 'The provided API key does not match'
+    });
+  }
+
+  req.apiKey = apiKey; // store for logging if needed
   next();
 };
 

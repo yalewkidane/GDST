@@ -15,3 +15,9 @@ docker-compose*.yml
 Dockerfile
 .dockerignore
 test.http
+
+# Exclude local database files from build context
+data/
+data/**
+data/db/
+data/db/**

@@ -1,0 +1,75 @@
+#-----Shipping Event
+#When products are transported from one location to another, the event is recorded as a shipping event. 
+#Shipping events are indicated by the type ObjectEvent, the action OBSERVE, and the business step of shipping.
+
+#Below we have an example of a shipping event whose master data is defined in the Aquaculture Master Data article.
+
+#See Event Sources and Destinations to learn about different source list and destination values.
+
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+        {
+            "type": "ObjectEvent",
+            "eventTime": "2023-02-18T00:00:00.0000000+00:00",
+            "eventTimeZoneOffset": "+00:00",
+            "eventID": "urn:uuid:d1e9ff8e-30c8-4ea0-b08e-26b1859ccc30",
+            "epcList": ["urn:epc:id:sscc:08600031303.0003"],
+            "action": "OBSERVE",
+            "bizStep": "shipping",
+            "bizLocation": {
+                "id": "urn:gdst:traceability-solution.com:location:loc:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.farm"
+            },
+            "sourceList": [
+                {
+                    "type": "owning_party",
+                    "source": "urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3"
+                },
+                {
+                    "type": "urn:epcglobal:cbv:sdt:location",
+                    "source": "urn:gdst:traceability-solution.com:location:loc:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.farm"
+                }
+            ],
+            "destinationList": [
+                {
+                    "type": "owning_party",
+                    "destination": "urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa"
+                },
+                {
+                    "type": "urn:epcglobal:cbv:sdt:location",
+                    "destination": "urn:gdst:traceability-solution.com:location:loc:30bad813-7fb9-43be-8caa-7e0876552eaa.processingplant"
+                }
+            ],
+            "gdst:productOwner": "urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3",
+            "cbvmda:certificationList": {
+                "certification": [
+                    {
+                        "gdst:certificationType": "urn:gdst:certtype:harvestcoc"
+                    }
+                ]
+            },
+            "cbvmda:informationProvider": "urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3"
+        }
+      ]
+    }
+}
+

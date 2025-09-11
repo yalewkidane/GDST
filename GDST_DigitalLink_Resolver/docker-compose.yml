@@ -1,5 +1,3 @@
-version: '3.3'
-
 services:
   app:
     build: .
@@ -19,6 +17,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    
 
   mongo:
     image: mongo:6.0
@@ -28,7 +27,8 @@ services:
     environment:
       - MONGO_INITDB_DATABASE=gdst-digitallink
     volumes:
-      - mongo_data:/data/db
+      #- mongo_data:/data/db
+      - ../../data/db:/data/db  # This will create a data/db folder in your project root
       - ./docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     networks:
       - gdst-network
@@ -37,6 +37,13 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
+    command: [
+      "mongod", 
+      "--quiet", 
+      "--logpath", "/dev/null",
+      "--setParameter", "quiet=1",
+      "--setParameter", "logLevel=0"
+    ]
 
   mongo-express:
     image: mongo-express:latest

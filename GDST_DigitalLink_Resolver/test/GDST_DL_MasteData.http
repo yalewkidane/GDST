@@ -1,0 +1,161 @@
+
+### GDST Digital Link Resolver API Fro Master Data Tests
+
+
+@apiKey = 62237afe89d3fbec955b34f3b9b447948a612c70b591cd5b5837d3aad0a6ac48
+@SOLUTION-PROVIDER-URL=http://210.113.134.235:24241/digitallink
+
+
+
+### Busan Processer Location 
+POST http://localhost:4040/digitallink/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/urn:epc:id:sgln:88000269.0007.1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/urn:epc:id:sgln:88000269.0007.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/414/urn:epc:id:sgln:88000269.0007.1?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### Busan Processer Party 
+POST http://localhost:4040/digitallink/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/urn:epc:id:pgln:88000269.00007",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/urn:epc:id:pgln:88000269.00007",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/417/urn:epc:id:pgln:88000269.00007?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+
+
+### Busan Improrter Location 
+POST http://localhost:4040/digitallink/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/urn:epc:id:sgln:88000269.0011.1",
+  "itemDescription": "Busan Improrters Co.",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/urn:epc:id:sgln:88000269.0011.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/414/urn:epc:id:sgln:88000269.0011.1?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### Busan Importer Party 
+POST http://localhost:4040/digitallink/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/urn:epc:id:pgln:88000269.00011",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/urn:epc:id:pgln:88000269.00011",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/417/urn:epc:id:pgln:88000269.00011?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
