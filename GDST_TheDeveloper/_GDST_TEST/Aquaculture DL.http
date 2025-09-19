@@ -4,10 +4,104 @@
 
 
 @SOLUTION-PROVIDER-URL=http://210.113.134.235:24241/digitallink
+
+
+##/414/urn:gdst:example.org:location:loc:8800026.3000003?linkType=gs1:masterData 
+###
+GET {{SOLUTION-PROVIDER-URL}}/01/urn:gdst:example.org:product:class:hatchery.1?linkType=gs1:masterData 
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### Gukje Feedworks Ltd Organization Lookup
+GET http://210.113.134.235:24240/gs1webvoc/414/urn:gdst:example.org:location:loc:8800048.2000012
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+## /01/urn:gdst:example.org:product:class:8800027.2000002?linkType=gs1:masterData
+
+###---------PGLN
+@PGLN=8800026900078
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/{{PGLN}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/{{PGLN}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+###
+GET {{SOLUTION-PROVIDER-URL}}/417/{{PGLN}}?linkType=gs1:epcis
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+###---------------------------------------------------------------------------------------------------------------SCCC
+@container_aqua=urn:epc:id:sscc:88000269.10000000
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/00/{{container_aqua}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/00/{{container_aqua}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/00/{{container_aqua}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+#digitallink/00/urn:epc:id:sscc:08600031303.0003?linkType=gs1:epcis
 ### -----------------------------------------------------------------------------------------------------------------------------------Product Definitions 
 
-@vegetables_product=urn:gdst:traceability-solution.com:product:class:88000197.2000002
-
+#@vegetables_product=urn:gdst:traceability-solution.com:product:class:88000197.2000002 --> urn:gdst:example.org:product:class:88000197.2000002
+@vegetables_product=urn:gdst:example.org:product:class:88000197.2000002
 POST {{SOLUTION-PROVIDER-URL}}/new
 Content-Type: application/json
 X-API-Key: {{apiKey}}
@@ -44,7 +138,7 @@ Accept: application/json
 X-API-Key: {{apiKey}}
 
 ### Gukje Feedworks Ltd Organization Lookup
-GET http://210.113.134.235:24240/gs1webvoc/01/urn:gdst:traceability-solution.com:product:class:88000197.2000002
+GET http://210.113.134.235:24240/gs1webvoc/01/urn:gdst:example.org:product:class:88000197.2000002
 Accept: application/ld+json
 X-API-Key: {{apiKey}}
 
@@ -60,7 +154,7 @@ X-API-Key: {{apiKey}}
 #GTIN: urn:gdst:traceability-solution.com:product:class:7d90c2cd-a801-4e22-acee-82bf27a4844d.soy
 #Owing Party: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
 #Information Provider: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
-@soy_product=urn:gdst:traceability-solution.com:product:class:8800017.2000002
+@soy_product=urn:gdst:example.org:product:class:8800017.2000002
 
 POST {{SOLUTION-PROVIDER-URL}}/new
 Content-Type: application/json
@@ -110,8 +204,10 @@ X-API-Key: {{apiKey}}
 #GTIN: urn:gdst:traceability-solution.com:product:class:dfa01b63-aaaa-4454-b13c-c53d6bdfab43.sal-fry
 #Owing Party: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
 #Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
-@Atlantic_Salmon_Fry_Product=urn:gdst:traceability-solution.com:product:class:8800028.2000002
 
+#old code
+#@Atlantic_Salmon_Fry_Product=urn:gdst:traceability-solution.com:product:class:8800028.2000002   --> urn:gdst:example.org:product:class:8800028.2000002
+@Atlantic_Salmon_Fry_Product=urn:gdst:example.org:product:class:8800028.2000002
 POST {{SOLUTION-PROVIDER-URL}}/new
 Content-Type: application/json
 X-API-Key: {{apiKey}}
@@ -157,32 +253,43 @@ X-API-Key: {{apiKey}}
 #GTIN: urn:gdst:traceability-solution.com:product:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole
 #Owing Party: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
 #Information Provider: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
-@Atlantic_Salmon_Product=urn:gdst:traceability-solution.com:product:class:8800027.2000002
+#@Atlantic_Salmon_Product=urn:gdst:traceability-solution.com:product:class:8800027.2000002 
+@Atlantic_Salmon_Product=urn:gdst:example.org:product:class:8800027.2000002
 
-POST {{baseUrl}}/capture
-Content-Type: application/ld+json
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
 X-API-Key: {{apiKey}}
 
 {
-  "@context": {
-    "cbvmda": "urn:epcglobal:cbvmda:mda",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "gs1": "http://gs1.org/voc/",
-    "@vocab": "http://gs1.org/voc/",
-    "gdst": "https://traceability-dialogue.org/vocab/"
-  },
-  "@type": "gs1:Product",
-  "gtin": "{{Atlantic_Salmon_Product}}",
-  "productName": [
-    { "@language": "en-US", "@value": "Atlantic Salmon" }
-  ],
-  "cbvmda:fishSeafoodPresentationCode": "WHL",
-  "cbvmda:owning_party": "{{jagalchi_tidal_processing_party}}",
-  "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}",
-  "cbvmda:speciesForFisheryStatisticsPurposesName": ["Salmo salar"],
-  "cbvmda:speciesForFisheryStatisticsPurposesCode": ["SAL"]
+  "anchor": "/01/{{Atlantic_Salmon_Product}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/{{Atlantic_Salmon_Product}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
 }
 
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/01/{{Atlantic_Salmon_Product}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
 
 
 ### Gukje Feedworks Ltd Organization Lookup
@@ -198,28 +305,42 @@ X-API-Key: {{apiKey}}
 
 #PGLN: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
 #Information Provider: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
-@Gukje_Feedmill_party=urn:gdst:traceability-solution.com:party:8800037.2000002
+@Gukje_Feedmill_party=urn:gdst:example.org:party:8800037.2000002
 
-POST {{baseUrl}}/capture
-Content-Type: application/ld+json
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
 X-API-Key: {{apiKey}}
 
 {
-  "@context": {
-    "cbvmda": "urn:epcglobal:cbvmda:mda",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "gs1": "http://gs1.org/voc/",
-    "@vocab": "http://gs1.org/voc/",
-    "gdst": "https://traceability-dialogue.org/vocab/"
-  },
-  "@type": "gs1:Organization",
-  "globalLocationNumber": "{{Gukje_Feedmill_party}}",
-  "cbvmda:informationProvider": "{{Gukje_Feedmill_party}}",
-  "organizationName": [
-    { "@language": "en-US", "@value": "Gukje Feedworks Ltd." }
+  "anchor": "/417/{{Gukje_Feedmill_party}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/{{Gukje_Feedmill_party}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
   ]
 }
 
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/{{Gukje_Feedmill_party}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
 
 ### Gukje Feedworks Ltd Organization Lookup
 GET {{baseUrl}}/417/{{Gukje_Feedmill_party}}
@@ -233,27 +354,42 @@ X-API-Key: {{apiKey}}
 
 #PGLN: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
 #Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
-@haeundae_farm_party=urn:gdst:traceability-solution.com:party:8800048.2000002
+@haeundae_farm_party=urn:gdst:example.org:party:8800048.2000002
 
-POST {{baseUrl}}/capture
-Content-Type: application/ld+json
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
 X-API-Key: {{apiKey}}
 
 {
-  "@context": {
-    "cbvmda": "urn:epcglobal:cbvmda:mda",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "gs1": "http://gs1.org/voc/",
-    "@vocab": "http://gs1.org/voc/",
-    "gdst": "https://traceability-dialogue.org/vocab/"
-  },
-  "@type": "gs1:Organization",
-  "globalLocationNumber": "{{haeundae_farm_party}}",
-  "cbvmda:informationProvider": "{{haeundae_farm_party}}",
-  "organizationName": [
-    { "@language": "en-US", "@value": "Haeundae Hatch & Nursery Co." }
+  "anchor": "/417/{{haeundae_farm_party}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/{{haeundae_farm_party}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
   ]
 }
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/{{haeundae_farm_party}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
 
 ### Gukje Feedworks Ltd Organization Lookup
 GET {{baseUrl}}/417/{{haeundae_farm_party}}
@@ -264,27 +400,42 @@ X-API-Key: {{apiKey}}
 
 #PGLN: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
 #Information Provider: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
-@jagalchi_tidal_processing_party=urn:gdst:traceability-solution.com:party:8800057.2000002
+@jagalchi_tidal_processing_party=urn:gdst:example.org:party:8800057.2000002
 
-POST {{baseUrl}}/capture
-Content-Type: application/ld+json
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
 X-API-Key: {{apiKey}}
 
 {
-  "@context": {
-    "cbvmda": "urn:epcglobal:cbvmda:mda",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "gs1": "http://gs1.org/voc/",
-    "@vocab": "http://gs1.org/voc/",
-    "gdst": "https://traceability-dialogue.org/vocab/"
-  },
-  "@type": "gs1:Organization",
-  "globalLocationNumber": "{{jagalchi_tidal_processing_party}}",
-  "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}",
-  "organizationName": [
-    { "@language": "en-US", "@value": "Jagalchi Tidal Salmon Farms Co." }
+  "anchor": "/417/{{jagalchi_tidal_processing_party}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/{{jagalchi_tidal_processing_party}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
   ]
 }
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/{{jagalchi_tidal_processing_party}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
 
 ### Gukje Feedworks Ltd Organization Lookup
 GET {{baseUrl}}/417/{{jagalchi_tidal_processing_party}}
@@ -295,27 +446,42 @@ X-API-Key: {{apiKey}}
 
 #PGLN: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
 #Information Provider: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
-@bluewave_retailer_party=urn:gdst:traceability-solution.com:party:8800067.2000002
+@bluewave_retailer_party=urn:gdst:example.org:party:8800067.2000002
 
-POST {{baseUrl}}/capture
-Content-Type: application/ld+json
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
 X-API-Key: {{apiKey}}
 
 {
-  "@context": {
-    "cbvmda": "urn:epcglobal:cbvmda:mda",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "gs1": "http://gs1.org/voc/",
-    "@vocab": "http://gs1.org/voc/",
-    "gdst": "https://traceability-dialogue.org/vocab/"
-  },
-  "@type": "gs1:Organization",
-  "globalLocationNumber": "{{bluewave_retailer_party}}",
-  "cbvmda:informationProvider": "{{bluewave_retailer_party}}",
-  "organizationName": [
-    { "@language": "en-US", "@value": "BlueWave Marine Processing Co." }
+  "anchor": "/417/{{bluewave_retailer_party}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/{{bluewave_retailer_party}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
   ]
 }
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/{{bluewave_retailer_party}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
 
 ### Gukje Feedworks Ltd Organization Lookup
 GET {{baseUrl}}/417/{{bluewave_retailer_party}}
@@ -336,42 +502,42 @@ X-API-Key: {{apiKey}}
 #GLN: urn:gdst:traceability-solution.com:location:loc:7d90c2cd-a801-4e22-acee-82bf27a4844d.feedmill
 #Owning Party: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
 #Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
-@Gukje_Feedmill_location_Feedmill=urn:gdst:traceability-solution.com:loc:8800037.2000012
+@Gukje_Feedmill_location_Feedmill=urn:gdst:example.org:location:loc:8800037.2000012
 
-POST {{baseUrl}}/capture
-Content-Type: application/ld+json
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
 X-API-Key: {{apiKey}}
 
 {
-  "@context": {
-    "cbvmda": "urn:epcglobal:cbvmda:mda",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "gs1": "http://gs1.org/voc/",
-    "@vocab": "http://gs1.org/voc/",
-    "gdst": "https://traceability-dialogue.org/vocab/"
-  },
-  "@type": "gs1:Place",
-  "globalLocationNumber": "{{Gukje_Feedmill_location_Feedmill}}",
-  "cbvmda:owning_party": "{{Gukje_Feedmill_party}}",
-  "cbvmda:informationProvider": "{{Gukje_Feedmill_party}}",
-  "gs1:physicalLocationName": [
-    { "@language": "en-US", "@value": "Gukje Feedmill" }
-  ],
-  "email": "hello@gukjefeed.kr",
-  "address": {
-    "@type": "gs1:PostalAddress",
-    "streetAddress": [
-      { "@language": "en-US", "@value": "45 Gwangbok-ro" }
-    ],
-    "addressLocality": [
-      { "@language": "en-US", "@value": "Jung-gu" }
-    ],
-    "addressRegion": [
-      { "@language": "en-US", "@value": "Busan" }
-    ],
-    "countryCode": "KR"
-  }
+  "anchor": "/414/{{Gukje_Feedmill_location_Feedmill}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/{{Gukje_Feedmill_location_Feedmill}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
 }
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/{{Gukje_Feedmill_location_Feedmill}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
 
 ### Blue catch area Lookup
 GET {{baseUrl}}/414/{{Gukje_Feedmill_location_Feedmill}}
@@ -385,42 +551,42 @@ X-API-Key: {{apiKey}}
 #Owning Party: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
 #Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
 #@Gukje_Feedmill_location_Feedmill=urn:gdst:traceability-solution.com:loc:8800037.2000012
-@haeundae_farm_location=urn:gdst:traceability-solution.com:loc:8800048.2000012
+@haeundae_farm_location=urn:gdst:example.org:location:loc:8800048.2000012
 
-POST {{baseUrl}}/capture
-Content-Type: application/ld+json
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
 X-API-Key: {{apiKey}}
 
 {
-  "@context": {
-    "cbvmda": "urn:epcglobal:cbvmda:mda",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "gs1": "http://gs1.org/voc/",
-    "@vocab": "http://gs1.org/voc/",
-    "gdst": "https://traceability-dialogue.org/vocab/"
-  },
-  "@type": "gs1:Place",
-  "globalLocationNumber": "{{haeundae_farm_location}}",
-  "cbvmda:owning_party": "{{haeundae_farm_party}}",
-  "cbvmda:informationProvider": "{{haeundae_farm_party}}",
-  "gs1:physicalLocationName": [
-    { "@language": "en-US", "@value": "Haeundae Hatchery" }
-  ],
-  "email": "hatch@haeundae-hatch.kr",
-  "address": {
-    "@type": "gs1:PostalAddress",
-    "streetAddress": [
-      { "@language": "en-US", "@value": "123 Haeundae-ro" }
-    ],
-    "addressLocality": [
-      { "@language": "en-US", "@value": "Haeundae-gu" }
-    ],
-    "addressRegion": [
-      { "@language": "en-US", "@value": "Busan" }
-    ],
-    "countryCode": "KR"
-  }
+  "anchor": "/414/{{haeundae_farm_location}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/{{haeundae_farm_location}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
 }
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/{{haeundae_farm_location}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
 
 ### Blue catch area Lookup
 GET {{baseUrl}}/414/{{haeundae_farm_location}}
@@ -439,42 +605,42 @@ X-API-Key: {{apiKey}}
 #Owning Party: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
 #Information Provider: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
 
-@jagalchi_tidal_processing_location=urn:gdst:traceability-solution.com:loc:8800057.2000012
+@jagalchi_tidal_processing_location=urn:gdst:example.org:location:loc:8800057.2000012
 
-POST {{baseUrl}}/capture
-Content-Type: application/ld+json
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
 X-API-Key: {{apiKey}}
 
 {
-  "@context": {
-    "cbvmda": "urn:epcglobal:cbvmda:mda",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "gs1": "http://gs1.org/voc/",
-    "@vocab": "http://gs1.org/voc/",
-    "gdst": "https://traceability-dialogue.org/vocab/"
-  },
-  "@type": "gs1:Place",
-  "globalLocationNumber": "{{jagalchi_tidal_processing_location}}",
-  "cbvmda:owning_party": "{{jagalchi_tidal_processing_party}}",
-  "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}",
-  "gs1:physicalLocationName": [
-    { "@language": "en-US", "@value": "Jagalchi Tidal Farm" }
-  ],
-  "email": "farm@jagalchi-salmon.kr",
-  "address": {
-    "@type": "gs1:PostalAddress",
-    "streetAddress": [
-      { "@language": "en-US", "@value": "200 Suyeong-ro" }
-    ],
-    "addressLocality": [
-      { "@language": "en-US", "@value": "Suyeong-gu" }
-    ],
-    "addressRegion": [
-      { "@language": "en-US", "@value": "Busan" }
-    ],
-    "countryCode": "KR"
-  }
+  "anchor": "/414/{{jagalchi_tidal_processing_location}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/{{jagalchi_tidal_processing_location}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
 }
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/{{jagalchi_tidal_processing_location}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
 
 
 ### Blue catch area Lookup
@@ -491,42 +657,42 @@ X-API-Key: {{apiKey}}
 #Owning Party: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
 #Information Provider: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
 
-@bluewave_retailer_loc=urn:gdst:traceability-solution.com:loc:8800067.2000012
-
-POST {{baseUrl}}/capture
-Content-Type: application/ld+json
+#@bluewave_retailer_loc=urn:gdst:traceability-solution.com:loc:8800067.2000012
+@bluewave_retailer_loc=urn:gdst:example.org:location:loc:8800067.2000012
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
 X-API-Key: {{apiKey}}
 
 {
-  "@context": {
-    "cbvmda": "urn:epcglobal:cbvmda:mda",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "gs1": "http://gs1.org/voc/",
-    "@vocab": "http://gs1.org/voc/",
-    "gdst": "https://traceability-dialogue.org/vocab/"
-  },
-  "@type": "gs1:Place",
-  "globalLocationNumber": "{{bluewave_retailer_loc}}",
-  "cbvmda:owning_party": "{{bluewave_retailer_party}}",
-  "cbvmda:informationProvider": "{{bluewave_retailer_party}}",
-  "gs1:physicalLocationName": [
-    { "@language": "en-US", "@value": "BlueWave Retail" }
-  ],
-  "email": "ops@bluewave.kr",
-  "address": {
-    "@type": "gs1:PostalAddress",
-    "streetAddress": [
-      { "@language": "en-US", "@value": "77 Jagalchihaean-ro" }
-    ],
-    "addressLocality": [
-      { "@language": "en-US", "@value": "Jung-gu" }
-    ],
-    "addressRegion": [
-      { "@language": "en-US", "@value": "Busan" }
-    ],
-    "countryCode": "KR"
-  }
+  "anchor": "/414/{{bluewave_retailer_loc}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/{{bluewave_retailer_loc}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
 }
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/{{bluewave_retailer_loc}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
 
 
 ### Blue catch area Lookup

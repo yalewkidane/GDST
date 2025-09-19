@@ -1,0 +1,1000 @@
+@apiKey = 62237afe89d3fbec955b34f3b9b447948a612c70b591cd5b5837d3aad0a6ac48
+@port=24240
+@baseUrl=http://210.113.134.235:{{port}}/gs1webvoc
+
+
+@port=24240
+@SOLUTION-PROVIDER-WebVoc-URL=http://210.113.134.235:{{port}}/gs1webvoc
+
+@SOLUTION-PROVIDER-URL=http://210.113.134.235:24241/digitallink
+
+### /414/urn:gdst:example.org:location:loc:importer.123?linkType=gs1:masterData 
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/urn:gdst:example.org:location:loc:importer.123",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/urn:gdst:example.org:location:loc:importer.123",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/urn:gdst:example.org:location:loc:importer.123?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/01/urn:gdst:example.org:product:class:feedmill.1?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+### 
+### --------------------------------------------------------------------------------------------------------Product class
+
+### urn:gdst:example.org:product:class:processor.2
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/urn:gdst:example.org:product:class:processor.2",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/urn:gdst:example.org:product:class:processor.2",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/01/urn:gdst:example.org:product:class:processor.2?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/01/urn:gdst:example.org:product:class:processor.2
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### urn:gdst:example.org:product:class:processor.10
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/urn:gdst:example.org:product:class:processor.10",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/urn:gdst:example.org:product:class:processor.10",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/01/urn:gdst:example.org:product:class:processor.10?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/01/urn:gdst:example.org:product:class:processor.10
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+### urn:gdst:example.org:product:class:fishfarm.1
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/urn:gdst:example.org:product:class:fishfarm.1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/urn:gdst:example.org:product:class:fishfarm.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/01/urn:gdst:example.org:product:class:fishfarm.1?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/01/urn:gdst:example.org:product:class:fishfarm.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### urn:gdst:example.org:product:class:hatchery.1
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/urn:gdst:example.org:product:class:hatchery.1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/urn:gdst:example.org:product:class:hatchery.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/01/urn:gdst:example.org:product:class:hatchery.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/01/urn:gdst:example.org:product:class:hatchery.1?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+
+
+
+### /01/urn:gdst:example.org:location:loc:importer.123?linkType=gs1:masterData 
+@hatchery_01=urn:gdst:example.org:product:class:hatchery.1
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/{{hatchery_01}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/{{hatchery_01}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/01/{{hatchery_01}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### urn:gdst:example.org:product:class:fisherman01.tuna
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/urn:gdst:example.org:product:class:fisherman01.tuna",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/urn:gdst:example.org:product:class:fisherman01.tuna",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/01/urn:gdst:example.org:product:class:fisherman01.tuna?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/01/urn:gdst:example.org:product:class:fisherman01.tuna
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### urn:gdst:example.org:product:class:feedmill.1
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/urn:gdst:example.org:product:class:feedmill.1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/urn:gdst:example.org:product:class:feedmill.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/01/urn:gdst:example.org:product:class:feedmill.1?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/01/urn:gdst:example.org:product:class:feedmill.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+#/01/urn:gdst:example.org:product:class:fishfarm.1?linkType=gs1:masterData
+
+### --------------------------------------------------------------------------------------------------------Location
+### Capture location of urn:gdst:example.org:location:loc:hatchery.1
+@hatchery_loc=urn:gdst:example.org:location:loc:hatchery.1
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/urn:gdst:example.org:location:loc:hatchery.1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/urn:gdst:example.org:location:loc:hatchery.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/urn:gdst:example.org:location:loc:hatchery.1?linkType=gs1:masterData
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/{{hatchery_loc}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### urn:gdst:example.org:location:loc:feedmill.1
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/urn:gdst:example.org:location:loc:feedmill.1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/urn:gdst:example.org:location:loc:feedmill.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/urn:gdst:example.org:location:loc:feedmill.1?linkType=gs1:masterData
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/urn:gdst:example.org:location:loc:feedmill.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### urn:gdst:example.org:location:loc:processor.plant1
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/urn:gdst:example.org:location:loc:processor.plant1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/urn:gdst:example.org:location:loc:processor.plant1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/urn:gdst:example.org:location:loc:processor.plant1?linkType=gs1:masterData
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/urn:gdst:example.org:location:loc:processor.plant1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+### urn:epc:id:sgln:08600031303.2.0
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/urn:epc:id:sgln:08600031303.2.0",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/urn:epc:id:sgln:08600031303.2.0",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/urn:epc:id:sgln:08600031303.2.0?linkType=gs1:masterData
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/urn:epc:id:sgln:08600031303.2.0
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### urn:epc:id:sgln:08600031303.3.0
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/urn:epc:id:sgln:08600031303.3.0",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/urn:epc:id:sgln:08600031303.3.0",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/urn:epc:id:sgln:08600031303.3.0?linkType=gs1:masterData
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/urn:epc:id:sgln:08600031303.3.0
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### urn:epc:id:sgln:08600031303.1.0
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/urn:epc:id:sgln:08600031303.1.0",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/urn:epc:id:sgln:08600031303.1.0",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/urn:epc:id:sgln:08600031303.1.0?linkType=gs1:masterData
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/urn:epc:id:sgln:08600031303.1.0
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### urn:gdst:example.org:location:loc:fishfarm.1
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/urn:gdst:example.org:location:loc:fishfarm.1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/urn:gdst:example.org:location:loc:fishfarm.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/urn:gdst:example.org:location:loc:fishfarm.1?linkType=gs1:masterData
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/urn:gdst:example.org:location:loc:fishfarm.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+### urn:gdst:example.org:location:loc:importer.123
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/urn:gdst:example.org:location:loc:importer.123",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/urn:gdst:example.org:location:loc:importer.123",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/urn:gdst:example.org:location:loc:importer.123?linkType=gs1:masterData
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+### webvoc Lookup
+
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/urn:gdst:example.org:location:loc:importer.123
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### -------------------------------------------------------------------------------------------------------------Party
+
+@hatchery_party=urn:gdst:example.org:party:hatchery.1
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/{{hatchery_party}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/{{hatchery_party}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/{{hatchery_party}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/417/{{hatchery_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### urn:gdst:example.org:party:hatchery.1
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/urn:gdst:example.org:party:hatchery.1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/urn:gdst:example.org:party:hatchery.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/urn:gdst:example.org:party:hatchery.1?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/417/urn:gdst:example.org:party:hatchery.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+###   urn:gdst:example.org:party:fishfarm.1
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/urn:gdst:example.org:party:fishfarm.1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/urn:gdst:example.org:party:fishfarm.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/urn:gdst:example.org:party:fishfarm.1?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/417/urn:gdst:example.org:party:fishfarm.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+### urn:gdst:example.org:party:feedmill.1
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/urn:gdst:example.org:party:feedmill.1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/urn:gdst:example.org:party:feedmill.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/urn:gdst:example.org:party:feedmill.1?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/417/urn:gdst:example.org:party:feedmill.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### urn:gdst:example.org:party:processor.1
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/urn:gdst:example.org:party:processor.1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/urn:gdst:example.org:party:processor.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/urn:gdst:example.org:party:processor.1?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/417/urn:gdst:example.org:party:processor.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+### urn:gdst:example.org:party:fisherman01.1
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/urn:gdst:example.org:party:fisherman01.1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/urn:gdst:example.org:party:fisherman01.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/urn:gdst:example.org:party:fisherman01.1?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/417/urn:gdst:example.org:party:fisherman01.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### urn:gdst:example.org:party:importer.1
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/urn:gdst:example.org:party:importer.1",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/urn:gdst:example.org:party:importer.1",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/urn:gdst:example.org:party:importer.1?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/417/urn:gdst:example.org:party:importer.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+

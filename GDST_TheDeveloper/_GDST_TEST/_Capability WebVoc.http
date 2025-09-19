@@ -1,0 +1,849 @@
+@apiKey = 62237afe89d3fbec955b34f3b9b447948a612c70b591cd5b5837d3aad0a6ac48
+@port=24240
+@SOLUTION-PROVIDER-WebVoc-URL=http://210.113.134.235:{{port}}/gs1webvoc
+
+
+### --------------------------------------------------------------------------------------------------------Product class
+# urn:gdst:example.org:product:lot:class:processor.2.v1-0122-2022
+# urn:gdst:example.org:product:class:processor.2
+
+### urn:gdst:example.org:product:class:processor.2
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Product",
+  "gtin": "urn:gdst:example.org:product:class:processor.2",
+  "productName": [
+    {
+      "@language": "en-US",
+      "@value": "Can of Tuna"
+    }
+  ],
+  "cbvmda:tradeItemConditionCode": "OTH",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:processor.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:processor.1",
+  "cbvmda:speciesForFisheryStatisticsPurposesName": [
+    "Thunnus albacares"
+  ],
+  "cbvmda:speciesForFisheryStatisticsPurposesCode": [
+    "YFT"
+  ]
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/01/urn:gdst:example.org:product:class:processor.2
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### urn:gdst:example.org:product:class:processor.10
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Product",
+  "gtin": "urn:gdst:example.org:product:class:processor.10",
+  "productName": [
+    {
+      "@language": "en-US",
+      "@value": "Tuna"
+    }
+  ],
+  "cbvmda:tradeItemConditionCode": "WHL",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:processor.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:processor.1",
+  "cbvmda:speciesForFisheryStatisticsPurposesName": [
+    "Thunnus albacares"
+  ],
+  "cbvmda:speciesForFisheryStatisticsPurposesCode": [
+    "YFT"
+  ]
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/01/urn:gdst:example.org:product:class:processor.10
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### urn:gdst:example.org:product:class:fishfarm.1
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Product",
+  "gtin": "urn:gdst:example.org:product:class:fishfarm.1",
+  "productName": [
+    {
+      "@language": "en-US",
+      "@value": "Farmed Tuna"
+    }
+  ],
+  "cbvmda:tradeItemConditionCode": "WHL",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:fishfarm.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:fishfarm.1",
+  "cbvmda:speciesForFisheryStatisticsPurposesName": [
+    "Thunnus albacares"
+  ],
+  "cbvmda:speciesForFisheryStatisticsPurposesCode": [
+    "YFT"
+  ]
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/01/urn:gdst:example.org:product:class:fishfarm.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### urn:gdst:example.org:product:class:hatchery.1
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Product",
+  "gtin": "urn:gdst:example.org:product:class:hatchery.1",
+  "productName": [
+    {
+      "@language": "en-US",
+      "@value": "Tuna Fryling"
+    }
+  ],
+  "cbvmda:tradeItemConditionCode": "OTH",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:hatchery.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:hatchery.1",
+  "cbvmda:speciesForFisheryStatisticsPurposesName": [
+    "Thunnus albacares"
+  ],
+  "cbvmda:speciesForFisheryStatisticsPurposesCode": [
+    "YFT"
+  ]
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/01/urn:gdst:example.org:product:class:hatchery.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### urn:gdst:example.org:product:class:feedmill.1
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Product",
+  "gtin": "urn:gdst:example.org:product:class:feedmill.1",
+  "productName": [
+    {
+      "@language": "en-US",
+      "@value": "Fish Feed"
+    }
+  ],
+  "cbvmda:tradeItemConditionCode": "",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:feedmill.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:feedmill.1"
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/01/urn:gdst:example.org:product:class:feedmill.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### urn:gdst:example.org:product:class:fisherman01.tuna
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Product",
+  "gtin": "urn:gdst:example.org:product:class:fisherman01.tuna",
+  "productName": [
+    {
+      "@language": "en-US",
+      "@value": "Whole Yellowfin Tuna"
+    }
+  ],
+  "cbvmda:tradeItemConditionCode": "WHL",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:fisherman01.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:fisherman01.1"
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/01/urn:gdst:example.org:product:class:fisherman01.tuna
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### --------------------------------------------------------------------------------------------------------Location
+### Capture location of urn:gdst:example.org:location:loc:hatchery.1
+@hatchery_loc=urn:gdst:example.org:location:loc:hatchery.1
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Place",
+  "globalLocationNumber": "{{hatchery_loc}}",
+  "cbvmda:owning_party": "{{hatchery_party}}",
+  "cbvmda:informationProvider": "{{hatchery_party}}",
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "Hatchery"
+    }
+  ],
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "streetAddress": [
+      {
+        "@language": "en-US",
+        "@value": "18203"
+      }
+    ],
+    "addressLocality": [
+      {
+        "@language": "en-US",
+        "@value": "Austin"
+      }
+    ],
+    "addressRegion": [
+      {
+        "@language": "en-US",
+        "@value": "TX"
+      }
+    ],
+    "countryCode": "US"
+  }
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/{{hatchery_loc}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### urn:gdst:example.org:location:loc:feedmill.1
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Place",
+  "globalLocationNumber": "urn:gdst:example.org:location:loc:feedmill.1",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:feedmill.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:feedmill.1",
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "Feedmill"
+    }
+  ],
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "streetAddress": [
+      {
+        "@language": "en-US",
+        "@value": "1932 North Berry Road"
+      }
+    ],
+    "addressLocality": [
+      {
+        "@language": "en-US",
+        "@value": "Austin"
+      }
+    ],
+    "addressRegion": [
+      {
+        "@language": "en-US",
+        "@value": "TX"
+      }
+    ],
+    "countryCode": "US"
+  }
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/urn:gdst:example.org:location:loc:feedmill.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### urn:gdst:example.org:location:loc:processor.plant1
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Place",
+  "globalLocationNumber": "urn:gdst:example.org:location:loc:processor.plant1",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:processor.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:processor.1",
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "Processing Plant"
+    }
+  ],
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "streetAddress": [
+      {
+        "@language": "en-US",
+        "@value": "123 Main St."
+      }
+    ],
+    "addressLocality": [
+      {
+        "@language": "en-US",
+        "@value": "Houston"
+      }
+    ],
+    "addressRegion": [
+      {
+        "@language": "en-US",
+        "@value": "TX"
+      }
+    ],
+    "countryCode": "US"
+  }
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/urn:gdst:example.org:location:loc:processor.plant1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+### urn:epc:id:sgln:08600031303.2.0
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Place",
+  "globalLocationNumber": "urn:epc:id:sgln:08600031303.2.0",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:processor.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:processor.1",
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "Port of San Diago"
+    }
+  ],
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "addressLocality": [
+      {
+        "@language": "en-US",
+        "@value": "San Diego"
+      }
+    ],
+    "countryCode": "US"
+  }
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/urn:epc:id:sgln:08600031303.2.0
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### urn:epc:id:sgln:08600031303.3.0
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "cbvmda:vesselFlagState": "US",
+  "cbvmda:vesselID": "TRANSSHIP1",
+  "cbvmda:vesselName": "Transshipment #1",
+  "gdst:imoNumber": "IMO987654321",
+  "@type": "gs1:Place",
+  "globalLocationNumber": "urn:epc:id:sgln:08600031303.3.0",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:processor.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:processor.1",
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "Transshipment #1"
+    }
+  ],
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "addressLocality": [
+      {
+        "@language": "en-US",
+        "@value": "San Diego"
+      }
+    ],
+    "countryCode": "US"
+  }
+}
+
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/urn:epc:id:sgln:08600031303.3.0
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### urn:epc:id:sgln:08600031303.1.0
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "cbvmda:vesselFlagState": "US",
+  "cbvmda:vesselID": "VESSEL1",
+  "cbvmda:vesselName": "Vessel #1",
+  "gdst:imoNumber": "IMO12345678",
+  "@type": "gs1:Place",
+  "globalLocationNumber": "urn:epc:id:sgln:08600031303.1.0",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:fisherman01.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:fisherman01.1",
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "Vessel #1"
+    }
+  ],
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "addressLocality": [
+      {
+        "@language": "en-US",
+        "@value": "San Diego"
+      }
+    ],
+    "countryCode": "US"
+  }
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/urn:epc:id:sgln:08600031303.1.0
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### urn:gdst:example.org:location:loc:fishfarm.1
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Place",
+  "globalLocationNumber": "urn:gdst:example.org:location:loc:fishfarm.1",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:fishfarm.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:fishfarm.1",
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "Fish Farm"
+    }
+  ],
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "streetAddress": [
+      {
+        "@language": "en-US",
+        "@value": "123 Holly Grove St."
+      }
+    ],
+    "addressLocality": [
+      {
+        "@language": "en-US",
+        "@value": "Austin"
+      }
+    ],
+    "addressRegion": [
+      {
+        "@language": "en-US",
+        "@value": "TX"
+      }
+    ],
+    "countryCode": "US"
+  }
+}
+
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/urn:gdst:example.org:location:loc:fishfarm.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+### urn:gdst:example.org:location:loc:importer.123
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Place",
+  "globalLocationNumber": "urn:gdst:example.org:location:loc:importer.123",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:importer.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:importer.1",
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "Importer Warehouse"
+    }
+  ],
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "streetAddress": [
+      {
+        "@language": "en-US",
+        "@value": "134 Estados Unidos"
+      }
+    ],
+    "addressLocality": [
+      {
+        "@language": "en-US",
+        "@value": "Sao Paulo"
+      }
+    ],
+    "addressRegion": [
+      {
+        "@language": "en-US",
+        "@value": "Sao Paulo"
+      }
+    ],
+    "countryCode": "BR"
+  }
+}
+
+### webvoc Lookup
+
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/414/urn:gdst:example.org:location:loc:importer.123
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### -------------------------------------------------------------------------------------------------------------Party
+
+@hatchery_party=urn:gdst:example.org:party:hatchery.1
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Organization",
+  "globalLocationNumber": "{{hatchery_party}}",
+  "cbvmda:owning_party": "{{hatchery_party}}",
+  "cbvmda:informationProvider": "{{hatchery_party}}",
+  "organizationName": [
+    {
+      "@language": "en-US",
+      "@value": "Hatchery"
+    }
+  ]
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/417/{{hatchery_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+#urn:gdst:example.org:party:hatchery.1
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Organization",
+  "globalLocationNumber": "urn:gdst:example.org:party:hatchery.1",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:hatchery.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:hatchery.1",
+  "organizationName": [
+    {
+      "@language": "en-US",
+      "@value": "Hatchery"
+    }
+  ]
+}
+
+
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/417/urn:gdst:example.org:party:hatchery.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+###   urn:gdst:example.org:party:fishfarm.1
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Organization",
+  "globalLocationNumber": "urn:gdst:example.org:party:fishfarm.1",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:fishfarm.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:fishfarm.1",
+  "organizationName": [
+    {
+      "@language": "en-US",
+      "@value": "Fish Farm"
+    }
+  ]
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/417/urn:gdst:example.org:party:fishfarm.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+### urn:gdst:example.org:party:feedmill.1
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Organization",
+  "globalLocationNumber": "urn:gdst:example.org:party:feedmill.1",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:feedmill.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:feedmill.1",
+  "organizationName": [
+    {
+      "@language": "en-US",
+      "@value": "Feedmill"
+    }
+  ]
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/417/urn:gdst:example.org:party:feedmill.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### urn:gdst:example.org:party:processor.1
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Organization",
+  "globalLocationNumber": "urn:gdst:example.org:party:processor.1",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:processor.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:processor.1",
+  "organizationName": [
+    {
+      "@language": "en-US",
+      "@value": "Processor"
+    }
+  ]
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/417/urn:gdst:example.org:party:processor.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+### urn:gdst:example.org:party:fisherman01.1
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Organization",
+  "globalLocationNumber": "urn:gdst:example.org:party:fisherman01.1",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:fisherman01.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:fisherman01.1",
+  "organizationName": [
+    {
+      "@language": "en-US",
+      "@value": "Fisherman"
+    }
+  ]
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/417/urn:gdst:example.org:party:fisherman01.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### urn:gdst:example.org:party:importer.1
+POST {{SOLUTION-PROVIDER-WebVoc-URL}}/capture
+Content-Type: application/ld+json
+X-API-Key: {{apiKey}} 
+
+{
+  "@context": {
+    "cbvmda": "urn:epcglobal:cbv:mda",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "gs1": "http://gs1.org/voc/",
+    "@vocab": "http://gs1.org/voc/",
+    "gdst": "https://traceability-dialogue.org/vocab"
+  },
+  "@type": "gs1:Organization",
+  "globalLocationNumber": "urn:gdst:example.org:party:importer.1",
+  "cbvmda:owning_party": "urn:gdst:example.org:party:importer.1",
+  "cbvmda:informationProvider": "urn:gdst:example.org:party:importer.1",
+  "organizationName": [
+    {
+      "@language": "en-US",
+      "@value": "Importer"
+    }
+  ]
+}
+
+### webvoc Lookup
+GET {{SOLUTION-PROVIDER-WebVoc-URL}}/417/urn:gdst:example.org:party:importer.1
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+

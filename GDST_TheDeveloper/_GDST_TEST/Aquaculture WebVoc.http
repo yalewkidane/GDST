@@ -6,8 +6,8 @@
 
 ### -----------------------------------------------------------------------------------------------------------------------------------Product Definitions 
 
-@vegetables_product=urn:gdst:traceability-solution.com:product:class:88000197.2000002
-
+//@vegetables_product=urn:gdst:traceability-solution.com:product:class:88000197.2000002
+@vegetables_product=urn:gdst:example.org:product:class:88000197.2000002
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
 X-API-Key: {{apiKey}}
@@ -25,6 +25,7 @@ X-API-Key: {{apiKey}}
   "productName": [
     { "@language": "en-US", "@value": "vegetables" }
   ],
+  "cbvmda:tradeItemConditionCode": "WHL",
   "cbvmda:owning_party": "{{Gukje_Feedmill_party}}",
   "cbvmda:informationProvider": "{{Gukje_Feedmill_party}}"
 }
@@ -35,12 +36,12 @@ Accept: application/ld+json
 X-API-Key: {{apiKey}}
 
 
-#------------------------ Soy-based Salmon Feed
+###------------------------ Soy-based Salmon Feed
 
 #GTIN: urn:gdst:traceability-solution.com:product:class:7d90c2cd-a801-4e22-acee-82bf27a4844d.soy
 #Owing Party: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
 #Information Provider: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
-@soy_product=urn:gdst:traceability-solution.com:product:class:8800017.2000002
+@soy_product=urn:gdst:example.org:product:class:8800017.2000002
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -59,6 +60,7 @@ X-API-Key: {{apiKey}}
   "productName": [
     { "@language": "en-US", "@value": "Soy-based Salmon Feed" }
   ],
+  "cbvmda:tradeItemConditionCode": "WHL",
   "cbvmda:owning_party": "{{Gukje_Feedmill_party}}",
   "cbvmda:informationProvider": "{{Gukje_Feedmill_party}}"
 }
@@ -76,7 +78,7 @@ X-API-Key: {{apiKey}}
 #GTIN: urn:gdst:traceability-solution.com:product:class:dfa01b63-aaaa-4454-b13c-c53d6bdfab43.sal-fry
 #Owing Party: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
 #Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
-@Atlantic_Salmon_Fry_Product=urn:gdst:traceability-solution.com:product:class:8800028.2000002
+@Atlantic_Salmon_Fry_Product=urn:gdst:example.org:product:class:8800028.2000002
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -96,6 +98,7 @@ X-API-Key: {{apiKey}}
     { "@language": "en-US", "@value": "Atlantic Salmon Fry" }
   ],
   "cbvmda:fishSeafoodPresentationCode": "FIL",
+  "cbvmda:tradeItemConditionCode": "WHL",
   "cbvmda:owning_party": "{{haeundae_farm_party}}",
   "cbvmda:informationProvider": "{{haeundae_farm_party}}",
   "cbvmda:speciesForFisheryStatisticsPurposesName": ["Salmo salar"],
@@ -111,7 +114,7 @@ X-API-Key: {{apiKey}}
 #GTIN: urn:gdst:traceability-solution.com:product:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole
 #Owing Party: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
 #Information Provider: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
-@Atlantic_Salmon_Product=urn:gdst:traceability-solution.com:product:class:8800027.2000002
+@Atlantic_Salmon_Product=urn:gdst:example.org:product:class:8800027.2000002
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -131,6 +134,7 @@ X-API-Key: {{apiKey}}
     { "@language": "en-US", "@value": "Atlantic Salmon" }
   ],
   "cbvmda:fishSeafoodPresentationCode": "WHL",
+  "cbvmda:tradeItemConditionCode": "OTH",
   "cbvmda:owning_party": "{{jagalchi_tidal_processing_party}}",
   "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}",
   "cbvmda:speciesForFisheryStatisticsPurposesName": ["Salmo salar"],
@@ -152,7 +156,7 @@ X-API-Key: {{apiKey}}
 
 #PGLN: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
 #Information Provider: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
-@Gukje_Feedmill_party=urn:gdst:traceability-solution.com:party:8800037.2000002
+@Gukje_Feedmill_party=urn:gdst:example.org:party:8800037.2000002
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -187,7 +191,7 @@ X-API-Key: {{apiKey}}
 
 #PGLN: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
 #Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
-@haeundae_farm_party=urn:gdst:traceability-solution.com:party:8800048.2000002
+@haeundae_farm_party=urn:gdst:example.org:party:8800048.2000002
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -218,7 +222,7 @@ X-API-Key: {{apiKey}}
 
 #PGLN: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
 #Information Provider: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
-@jagalchi_tidal_processing_party=urn:gdst:traceability-solution.com:party:8800057.2000002
+@jagalchi_tidal_processing_party=urn:gdst:example.org:party:8800057.2000002
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -249,7 +253,7 @@ X-API-Key: {{apiKey}}
 
 #PGLN: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
 #Information Provider: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
-@bluewave_retailer_party=urn:gdst:traceability-solution.com:party:8800067.2000002
+@bluewave_retailer_party=urn:gdst:example.org:party:8800067.2000002
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -290,7 +294,8 @@ X-API-Key: {{apiKey}}
 #GLN: urn:gdst:traceability-solution.com:location:loc:7d90c2cd-a801-4e22-acee-82bf27a4844d.feedmill
 #Owning Party: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
 #Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
-@Gukje_Feedmill_location_Feedmill=urn:gdst:traceability-solution.com:loc:8800037.2000012
+@Gukje_Feedmill_location_Feedmill=urn:gdst:example.org:location:loc:8800037.2000012
+
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -310,6 +315,12 @@ X-API-Key: {{apiKey}}
   "cbvmda:informationProvider": "{{Gukje_Feedmill_party}}",
   "gs1:physicalLocationName": [
     { "@language": "en-US", "@value": "Gukje Feedmill" }
+  ],
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "Gukje Feedmill"
+    }
   ],
   "email": "hello@gukjefeed.kr",
   "address": {
@@ -339,7 +350,8 @@ X-API-Key: {{apiKey}}
 #Owning Party: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
 #Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
 #@Gukje_Feedmill_location_Feedmill=urn:gdst:traceability-solution.com:loc:8800037.2000012
-@haeundae_farm_location=urn:gdst:traceability-solution.com:loc:8800048.2000012
+#@haeundae_farm_location=urn:gdst:traceability-solution.com:loc:8800048.2000012
+@haeundae_farm_location=urn:gdst:example.org:location:loc:8800048.2000012
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -361,6 +373,12 @@ X-API-Key: {{apiKey}}
     { "@language": "en-US", "@value": "Haeundae Hatchery" }
   ],
   "email": "hatch@haeundae-hatch.kr",
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "Haeundae Hatchery"
+    }
+  ],
   "address": {
     "@type": "gs1:PostalAddress",
     "streetAddress": [
@@ -393,7 +411,7 @@ X-API-Key: {{apiKey}}
 #Owning Party: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
 #Information Provider: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
 
-@jagalchi_tidal_processing_location=urn:gdst:traceability-solution.com:loc:8800057.2000012
+@jagalchi_tidal_processing_location=urn:gdst:example.org:location:loc:8800057.2000012
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -415,6 +433,12 @@ X-API-Key: {{apiKey}}
     { "@language": "en-US", "@value": "Jagalchi Tidal Farm" }
   ],
   "email": "farm@jagalchi-salmon.kr",
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "Jagalchi Tidal Farm"
+    }
+  ],
   "address": {
     "@type": "gs1:PostalAddress",
     "streetAddress": [
@@ -445,7 +469,7 @@ X-API-Key: {{apiKey}}
 #Owning Party: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
 #Information Provider: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
 
-@bluewave_retailer_loc=urn:gdst:traceability-solution.com:loc:8800067.2000012
+@bluewave_retailer_loc=urn:gdst:example.org:location:loc:8800067.2000012
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -467,6 +491,12 @@ X-API-Key: {{apiKey}}
     { "@language": "en-US", "@value": "BlueWave Retail" }
   ],
   "email": "ops@bluewave.kr",
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "BlueWave Retail"
+    }
+  ],
   "address": {
     "@type": "gs1:PostalAddress",
     "streetAddress": [

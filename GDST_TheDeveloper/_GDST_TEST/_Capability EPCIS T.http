@@ -1,0 +1,7 @@
+
+@apiKey = 62237afe89d3fbec955b34f3b9b447948a612c70b591cd5b5837d3aad0a6ac48
+###
+GET http://210.113.134.235:24242/epcis/v2/events?EQ_eventID=["urn:uuid:69b0c368-f9cb-4e0b-a332-46ab3552a15d","urn:uuid:d2323970-58e9-4fa7-8a39-985578a7c481","urn:uuid:c66addb8-9e2d-42ff-b031-31289fc92da8","urn:uuid:82ce56ba-0321-4b86-8ab5-2dde03e7e63b","urn:uuid:3841989c-a237-4606-9580-78ccc111bc26","urn:uuid:b4f14120-3bae-4170-b325-443624f91eb4","urn:uuid:250d4afd-b54c-465a-bfee-3635736e3c8b","urn:uuid:8dbbe4d0-8cac-40ad-83b7-d826ad0ba6b2","urn:uuid:f1044eb9-f784-4693-a293-b3e280e644a4","urn:uuid:cbd6caa1-a359-400b-95a2-cc46f75267e7","urn:uuid:a463e675-34fa-4247-b161-c361b0850e18","urn:uuid:e4cffe7c-d4ad-43c4-a4ac-a574e5279a3d","urn:uuid:52997959-f370-451a-981a-ea52511b189a","urn:uuid:b88c4774-d775-49fe-8233-0c51f27c77d0","urn:uuid:f28db7ec-a0f6-4da6-83a8-04c7a7b90649","urn:uuid:632dadd3-1aae-4525-a8d7-fe8ac62674c2","urn:uuid:4a4329ef-f282-4ae0-a5fc-e1f07b486955","urn:uuid:6a69b93d-227d-499c-b9bb-5c0ca93dc8ab"]
+X-API-Key: {{apiKey}}
+
+

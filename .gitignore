@@ -1,3 +1,15 @@
+
+#GDST_Trace_Back .gitignore
+GDST_Trace_Back/node_modules
+GDST_Trace_Back/.env
+GDST_Trace_Back/.env.local
+GDST_Trace_Back/.env.development.local
+GDST_Trace_Back/.env.test.local
+GDST_Trace_Back/.env.production.local
+GDST_Trace_Back/.next
+# End of GDST_Trace_Back .gitignore
+
+
 # Logs
 logs
 *.log

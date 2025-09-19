@@ -5,7 +5,7 @@
 @keyType = 00
 @idValue = urn:epc:id:sscc:08600031303.0003
 @linkTypeValue = gs1:epcis
-@apiKey = ec6e6c5f-4464-4291-b029-4c56f8f77298
+@apiKey = 62237afe89d3fbec955b34f3b9b447948a612c70b591cd5b5837d3aad0a6ac48
 
 ### Health Check
 GET http://localhost:4040/health
@@ -65,7 +65,7 @@ Content-Type: application/json
 X-API-Key: {{apiKey}}
 
 {
-  "anchor": "/417/urn:epc:pgln:08600031303.0003",
+  "anchor": "/417/urn:epc:pgln:08600031303.34345",
   "itemDescription": "Dal Giardino Company Location",
   "defaultLinktype": "gs1:sustainabilityInfo",
   "links": [
@@ -89,6 +89,13 @@ X-API-Key: {{apiKey}}
     }
   ]
 }
+
+### 
+GET http://localhost:4040/digitallink//417/urn:epc:pgln:08600031303.34345?linkType=gs1:epcis
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
 
 ### Get Digital Links by Identifier and LinkType (Using Variables)
 GET http://localhost:4040/digitallink/{{keyType}}/{{idValue}}?linkType={{linkTypeValue}}

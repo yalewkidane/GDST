@@ -8,10 +8,11 @@
 ###  Yellowfin Tuna
 
 #GTIN: urn:gdst:traceability-solution.com:product:class:a1b2c3d4-27e8-4a9a-8f1a-22d1f3b4c5d6.yft
-@product_tuna=urn:gdst:traceability-solution.com:product:class:8800026.2000001
+#@product_tuna=urn:gdst:traceability-solution.com:product:class:8800026.2000001
+@product_tuna=urn:gdst:example.org:product:class:8800026.2000001
 #Owning Party: urn:gdst:traceability-solution.com:party:9e6b7f21-2a0d-4c2a-9b4a-7a0e5b7d3f21
 #Information Provider: urn:gdst:traceability-solution.com:party:9e6b7f21-2a0d-4c2a-9b4a-7a0e5b7d3f21
-@blue_vessel_operator_party=urn:gdst:traceability-solution.com:party:8800026.2000002
+@blue_vessel_operator_party=urn:gdst:example.org:party:8800026.2000002
 
 #Species Scientific Name: Thunnus albacares
 #Species Purpose Code: YFT
@@ -34,6 +35,7 @@ X-API-Key: {{apiKey}}
   "productName": [
     { "@language": "en-US", "@value": "Yellowfin Tuna" }
   ],
+  "cbvmda:tradeItemConditionCode": "WHL",
   "cbvmda:owning_party": "{{blue_vessel_operator_party}}",
   "cbvmda:informationProvider":  "{{blue_vessel_operator_party}}",
   "cbvmda:speciesForFisheryStatisticsPurposesName": ["Thunnus albacares"],
@@ -48,7 +50,7 @@ X-API-Key: {{apiKey}}
 
 
 ### Frozen Yellowfin Tuna
-@product_tuna_frozen=urn:gdst:traceability-solution.com:product:class:8800026.2000021
+@product_tuna_frozen=urn:gdst:example.org:product:class:8800026.2000021
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
 X-API-Key: {{apiKey}}
@@ -66,6 +68,7 @@ X-API-Key: {{apiKey}}
   "productName": [
     { "@language": "en-US", "@value": "Yellowfin Tuna" }
   ],
+  "cbvmda:tradeItemConditionCode": "WHL",
   "cbvmda:owning_party": "{{blue_vessel_operator_party}}",
   "cbvmda:informationProvider":  "{{blue_vessel_operator_party}}",
   "cbvmda:speciesForFisheryStatisticsPurposesName": ["Thunnus albacares"],
@@ -117,7 +120,7 @@ X-API-Key: {{apiKey}}
 
 #PGLN: urn:gdst:traceability-solution.com:party:4d7b8a10-5f3c-4b73-9a4d-2b1e8c9f0a55
 #Information Provider: urn:gdst:traceability-solution.com:party:4d7b8a10-5f3c-4b73-9a4d-2b1e8c9f0a55
-@processor_jagalchi_party=urn:gdst:traceability-solution.com:party:8800026.3000003
+@processor_jagalchi_party=urn:gdst:example.org:party:8800026.3000003
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -146,7 +149,7 @@ X-API-Key: {{apiKey}}
 
 ### Yeongdo Ocean Processing Co. [Processor 2]
 
-@processor_Yeongdo_party=urn:gdst:traceability-solution.com:party:8800026.4000004
+@processor_Yeongdo_party=urn:gdst:example.org:party:8800026.4000004
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -179,7 +182,7 @@ X-API-Key: {{apiKey}}
 ### ------------------------------------------------------------------------------------------------------------------------------------Place Definitions
 
 #FV Blue Current (Fishing Vessel) [Cath Area ]
-@blue_vessel_operator_location_catcharea=urn:gdst:traceability-solution.com:loc:8800026.2000012
+@blue_vessel_operator_location_catcharea=urn:gdst:example.org:location:loc:8800026.2000012
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -203,7 +206,27 @@ X-API-Key: {{apiKey}}
   "cbvmda:vesselFlagState": "KR",
   "cbvmda:vesselID": "KRPUS-FV-0001",
   "cbvmda:vesselName": "FV Blue Current",
-  "gdst:imoNumber": "IMO.9876543"
+  "gdst:imoNumber": "IMO.9876543",
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "FV Blue Current"
+    }
+  ],
+  
+  "address": {
+    "@type": "gs1:PostalAddress",
+    "streetAddress": [
+      { "@language": "en-US", "@value": "45 Gwangbok-ro" }
+    ],
+    "addressLocality": [
+      { "@language": "en-US", "@value": "Jung-gu" }
+    ],
+    "addressRegion": [
+      { "@language": "en-US", "@value": "Busan" }
+    ],
+    "countryCode": "KR"
+  }
 }
 
 
@@ -213,7 +236,7 @@ Accept: application/ld+json
 X-API-Key: {{apiKey}}
 
 ### Blue Current Fisheries Co. [Port Location]
-@blue_vessel_operator_location_port=urn:gdst:traceability-solution.com:loc:8800026.2000022
+@blue_vessel_operator_location_port=urn:gdst:example.org:location:loc:8800026.2000022
 
 
 POST {{baseUrl}}/capture
@@ -236,6 +259,12 @@ X-API-Key: {{apiKey}}
     { "@language": "en-US", "@value": "Port of Busan" }
   ],
   "email": "portops@busanport.kr",
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "Port of Busan"
+    }
+  ],
   "address": {
     "@type": "gs1:PostalAddress",
     "streetAddress": [
@@ -260,7 +289,7 @@ X-API-Key: {{apiKey}}
 
 ### Yeongdo Processor (Plant) [Lion Plant Location]
 
-@processor_Yeongdo_location_lionPlant=urn:gdst:traceability-solution.com:party:8800026.4000004
+@processor_Yeongdo_location_lionPlant=urn:gdst:example.org:location:loc:8800026.4000004
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -278,6 +307,12 @@ X-API-Key: {{apiKey}}
   "globalLocationNumber": "{{processor_Yeongdo_location_lionPlant}}",
   "cbvmda:owning_party": "{{processor_Yeongdo_party}}",
   "cbvmda:informationProvider": "{{processor_Yeongdo_party}}",
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "Yeongdo Processor"
+    }
+  ],
   "address": {
     "@type": "gs1:PostalAddress",
     "streetAddress": [
@@ -301,7 +336,7 @@ X-API-Key: {{apiKey}}
 
 ### Jagalchi Runner [Canner Location]
 
-@processor_jagalchi_location_canner=urn:gdst:traceability-solution.com:loc:8800026.3000003
+@processor_jagalchi_location_canner=urn:gdst:example.org:location:loc:8800026.3000003
 
 POST {{baseUrl}}/capture
 Content-Type: application/ld+json
@@ -320,6 +355,12 @@ X-API-Key: {{apiKey}}
   "globalLocationNumber": "{{processor_jagalchi_location_canner}}",
   "cbvmda:owning_party": "{{processor_jagalchi_party}}",
   "cbvmda:informationProvider": "{{processor_jagalchi_party}}",
+  "name": [
+    {
+      "@language": "en-US",
+      "@value": "Jagalchi Runner"
+    }
+  ],
   "address": {
     "@type": "gs1:PostalAddress",
     "streetAddress": [

@@ -647,7 +647,7 @@ X-API-Key: {{apiKey}}
                 "destination": "{{processor_jagalchi_location_canner}}"
             }
         ],
-        "gdst:productOwner": "{{{{processor_jagalchi_party}}}}",
+        "gdst:productOwner": "{{processor_jagalchi_party}}",
         "cbvmda:certificationList": {
             "certification": [
                 {
@@ -720,7 +720,7 @@ X-API-Key: {{apiKey}}
                 "destination": "{{processor_jagalchi_location_canner}}"
             }
         ],
-        "gdst:productOwner": "{{{{processor_jagalchi_party}}}}",
+        "gdst:productOwner": "{{processor_jagalchi_party}}",
         "cbvmda:certificationList": {
             "certification": [
                 {

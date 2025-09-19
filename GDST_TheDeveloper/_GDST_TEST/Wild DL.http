@@ -1,0 +1,482 @@
+
+@apiKey = 62237afe89d3fbec955b34f3b9b447948a612c70b591cd5b5837d3aad0a6ac48
+@port=24240
+@baseUrl=http://210.113.134.235:{{port}}/gs1webvoc
+@SOLUTION-PROVIDER-URL=http://210.113.134.235:24241/digitallink
+
+
+###---------------------------------------------------------------------------------------------------------------SCCC
+@container_wild=urn:epc:id:sscc:88000269.20000000
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/00/{{container_wild}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/00/{{container_wild}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/00/{{container_wild}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### -------------------------------------------------------------------------------------------------------- Product Definitions 
+###  Yellowfin Tuna
+
+#GTIN: urn:gdst:traceability-solution.com:product:class:a1b2c3d4-27e8-4a9a-8f1a-22d1f3b4c5d6.yft
+#@product_tuna=urn:gdst:traceability-solution.com:product:class:8800026.2000001
+@product_tuna=urn:gdst:example.org:product:class:8800026.2000001
+#Owning Party: urn:gdst:traceability-solution.com:party:9e6b7f21-2a0d-4c2a-9b4a-7a0e5b7d3f21
+#Information Provider: urn:gdst:traceability-solution.com:party:9e6b7f21-2a0d-4c2a-9b4a-7a0e5b7d3f21
+@blue_vessel_operator_party=urn:gdst:example.org:party:8800026.2000002
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/{{product_tuna}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/{{product_tuna}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/01/{{product_tuna}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Yellowfin Tuna Product Lookup
+GET {{baseUrl}}/01/{{product_tuna}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+### Frozen Yellowfin Tuna
+@product_tuna_frozen=urn:gdst:example.org:product:class:8800026.2000021
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/{{product_tuna_frozen}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/{{product_tuna_frozen}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/01/{{product_tuna_frozen}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Yellowfin Tuna Product Lookup
+GET {{baseUrl}}/01/{{product_tuna_frozen}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### -------------------------------------------------------------------------------------------------------- Organization Definitions 
+
+#Below are examples of master data for organization definitions. [Blue Current Fisheries Co.]
+
+#PGLN: urn:gdst:traceability-solution.com:party:9e6b7f21-2a0d-4c2a-9b4a-7a0e5b7d3f21
+#Information Provider: urn:gdst:traceability-solution.com:party:9e6b7f21-2a0d-4c2a-9b4a-7a0e5b7d3f21
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/{{blue_vessel_operator_party}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/{{blue_vessel_operator_party}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/{{blue_vessel_operator_party}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+
+### Blue Current Fisheries Organization Lookup
+GET {{baseUrl}}/417/{{blue_vessel_operator_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+### Jagalchi Tender & Supply Ltd. [Processor 2]
+
+#PGLN: urn:gdst:example.org:party:4d7b8a10-5f3c-4b73-9a4d-2b1e8c9f0a55
+#Information Provider: urn:gdst:traceability-solution.com:party:4d7b8a10-5f3c-4b73-9a4d-2b1e8c9f0a55
+@processor_jagalchi_party=urn:gdst:example.org:party:8800026.3000003
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/{{processor_jagalchi_party}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/{{processor_jagalchi_party}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/{{processor_jagalchi_party}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### Jagalchi Tender & Supply Organization Lookup
+GET {{baseUrl}}/417/{{processor_jagalchi_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### Yeongdo Ocean Processing Co. [Processor 2]
+
+@processor_Yeongdo_party=urn:gdst:example.org:party:8800026.4000004
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/{{processor_Yeongdo_party}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/{{processor_Yeongdo_party}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/{{processor_Yeongdo_party}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+
+### Yeongdo Ocean Processing Organization Lookup
+GET {{baseUrl}}/417/{{processor_Yeongdo_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+### ------------------------------------------------------------------------------------------------------------------------------------Place Definitions
+
+#FV Blue Current (Fishing Vessel) [Cath Area ]
+@blue_vessel_operator_location_catcharea=urn:gdst:example.org:location:loc:8800026.2000012
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/{{blue_vessel_operator_location_catcharea}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/{{blue_vessel_operator_location_catcharea}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/{{blue_vessel_operator_location_catcharea}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### Blue catch area Lookup
+GET {{baseUrl}}/414/{{blue_vessel_operator_location_catcharea}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### Blue Current Fisheries Co. [Port Location]
+@blue_vessel_operator_location_port=urn:gdst:example.org:location:loc:8800026.2000022
+
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/{{blue_vessel_operator_location_port}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/{{blue_vessel_operator_location_port}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/{{blue_vessel_operator_location_port}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### Blue catch area Lookup
+GET {{baseUrl}}/414/{{blue_vessel_operator_location_port}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### Yeongdo Processor (Plant) [Lion Plant Location]
+
+@processor_Yeongdo_location_lionPlant=urn:gdst:example.org:location:loc:8800026.4000004
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/{{processor_Yeongdo_location_lionPlant}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/{{processor_Yeongdo_location_lionPlant}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/{{processor_Yeongdo_location_lionPlant}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Yeongdo Processor (Plant) Location Lookup
+GET {{baseUrl}}/414/{{processor_Yeongdo_location_lionPlant}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### Jagalchi Runner [Canner Location]
+
+@processor_jagalchi_location_canner=urn:gdst:example.org:location:loc:8800026.3000003
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/{{processor_jagalchi_location_canner}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/{{processor_jagalchi_location_canner}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/{{processor_jagalchi_location_canner}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+##/414/urn:gdst:example.org:location:loc:8800026.3000003?linkType=gs1:masterData 
+###
+GET {{SOLUTION-PROVIDER-URL}}/414/urn:gdst:example.org:location:loc:8800026.3000003?linkType=gs1:masterData 
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### Jagalchi Tender & Supply Organization Lookup
+GET {{baseUrl}}/414/{{processor_jagalchi_location_canner}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+
+
+
+
