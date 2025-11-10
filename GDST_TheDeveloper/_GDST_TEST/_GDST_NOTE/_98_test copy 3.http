@@ -23,7 +23,7 @@ X-API-Key: {{apiKey}}
 # urn:epc:id:sscc:88000269.10000000,urn:epc:id:sscc:88000269.20000000
 
 ###
-GET http://210.113.134.235:24242/epcis/v2/events?EQ_eventID=["urn:uuid:30b1a390-df49-4245-86a8-7d08546a0c9b"]
+GET http://210.113.134.235:24242/epcis/v2/events?EQ_eventID=["urn:uuid:e84965d8-d9b9-41ff-8fa2-b066717819bd"]
 X-API-Key: {{apiKey}}
 
 #|urn%3agdst%3atraceability-solution.com%3aproduct%3aclass%3a8800026.2000021.lot67890

@@ -1,0 +1,702 @@
+@apiKey = 62237afe89d3fbec955b34f3b9b447948a612c70b591cd5b5837d3aad0a6ac48
+@port=24240
+@baseUrl=http://210.113.134.235:{{port}}/gs1webvoc
+
+
+@SOLUTION-PROVIDER-URL=http://210.113.134.235:24241/digitallink
+
+
+##/414/urn:gdst:example.org:location:loc:8800026.3000003?linkType=gs1:masterData 
+###
+GET {{SOLUTION-PROVIDER-URL}}/01/urn:gdst:example.org:product:class:hatchery.1?linkType=gs1:masterData 
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### Gukje Feedworks Ltd Organization Lookup
+GET http://210.113.134.235:24240/gs1webvoc/414/urn:gdst:example.org:location:loc:8800048.2000012
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+## /01/urn:gdst:example.org:product:class:8800027.2000002?linkType=gs1:masterData
+
+###---------PGLN
+@PGLN=8800026900078
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/{{PGLN}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/{{PGLN}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+###
+GET {{SOLUTION-PROVIDER-URL}}/417/{{PGLN}}?linkType=gs1:epcis
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+###---------------------------------------------------------------------------------------------------------------SCCC
+@container_aqua=urn:epc:id:sscc:88000269.10000000
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/00/{{container_aqua}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/00/{{container_aqua}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/00/{{container_aqua}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+#digitallink/00/urn:epc:id:sscc:08600031303.0003?linkType=gs1:epcis
+### -----------------------------------------------------------------------------------------------------------------------------------Product Definitions 
+
+#@vegetables_product=urn:gdst:traceability-solution.com:product:class:88000197.2000002 --> urn:gdst:example.org:product:class:88000197.2000002
+@vegetables_product=urn:gdst:example.org:product:class:88000197.2000002
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/{{vegetables_product}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/{{vegetables_product}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+###
+GET {{SOLUTION-PROVIDER-URL}}/01/{{vegetables_product}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Gukje Feedworks Ltd Organization Lookup
+GET http://210.113.134.235:24240/gs1webvoc/01/urn:gdst:example.org:product:class:88000197.2000002
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/01/{{vegetables_product}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+###------------------------ Soy-based Salmon Feed
+
+#GTIN: urn:gdst:traceability-solution.com:product:class:7d90c2cd-a801-4e22-acee-82bf27a4844d.soy
+#Owing Party: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
+#Information Provider: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
+@soy_product=urn:gdst:example.org:product:class:8800017.2000002
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/{{soy_product}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/{{soy_product}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/01/{{soy_product}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/01/{{soy_product}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### ------------------------ Atlantic Salmon Fry
+
+
+
+#GTIN: urn:gdst:traceability-solution.com:product:class:dfa01b63-aaaa-4454-b13c-c53d6bdfab43.sal-fry
+#Owing Party: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
+#Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
+
+#old code
+#@Atlantic_Salmon_Fry_Product=urn:gdst:traceability-solution.com:product:class:8800028.2000002   --> urn:gdst:example.org:product:class:8800028.2000002
+@Atlantic_Salmon_Fry_Product=urn:gdst:example.org:product:class:8800028.2000002
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/{{Atlantic_Salmon_Fry_Product}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/{{Atlantic_Salmon_Fry_Product}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/01/{{Atlantic_Salmon_Fry_Product}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/01/{{Atlantic_Salmon_Fry_Product}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+###------------------------ Atlantic Salmon
+
+#GTIN: urn:gdst:traceability-solution.com:product:class:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.sal-whole
+#Owing Party: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
+#Information Provider: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
+#@Atlantic_Salmon_Product=urn:gdst:traceability-solution.com:product:class:8800027.2000002 
+@Atlantic_Salmon_Product=urn:gdst:example.org:product:class:8800027.2000002
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/01/{{Atlantic_Salmon_Product}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/01/{{Atlantic_Salmon_Product}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/01/{{Atlantic_Salmon_Product}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/01/{{Atlantic_Salmon_Product}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+### -----------------------------------------------------------------------------------------------------------------------------------Organization Definitions 
+
+#------------------------ Gukje Feedworks Ltd.
+
+#PGLN: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
+#Information Provider: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
+@Gukje_Feedmill_party=urn:gdst:example.org:party:8800037.2000002
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/{{Gukje_Feedmill_party}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/{{Gukje_Feedmill_party}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/{{Gukje_Feedmill_party}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/417/{{Gukje_Feedmill_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+### ------------------------ Haeundae Hatch & Nursery Co.
+
+#PGLN: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
+#Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
+@haeundae_farm_party=urn:gdst:example.org:party:8800048.2000002
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/{{haeundae_farm_party}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/{{haeundae_farm_party}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/{{haeundae_farm_party}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/417/{{haeundae_farm_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### ------------------------ Jagalchi Tidal Processing Co.
+
+#PGLN: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
+#Information Provider: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
+@jagalchi_tidal_processing_party=urn:gdst:example.org:party:8800057.2000002
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/{{jagalchi_tidal_processing_party}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/{{jagalchi_tidal_processing_party}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/{{jagalchi_tidal_processing_party}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/417/{{jagalchi_tidal_processing_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+### ------------------------ BlueWave Retailer Co.
+
+#PGLN: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
+#Information Provider: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
+@bluewave_retailer_party=urn:gdst:example.org:party:8800067.2000002
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/417/{{bluewave_retailer_party}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/417/{{bluewave_retailer_party}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/417/{{bluewave_retailer_party}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Gukje Feedworks Ltd Organization Lookup
+GET {{baseUrl}}/417/{{bluewave_retailer_party}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+
+
+
+
+### -----------------------------------------------------------------------------------------------------------------------------------Place Definitions 
+
+#----------------------Gukje Feedmill- Location
+
+#GLN: urn:gdst:traceability-solution.com:location:loc:7d90c2cd-a801-4e22-acee-82bf27a4844d.feedmill
+#Owning Party: urn:gdst:traceability-solution.com:party:7d90c2cd-a801-4e22-acee-82bf27a4844d
+#Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
+@Gukje_Feedmill_location_Feedmill=urn:gdst:example.org:location:loc:8800037.2000012
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/{{Gukje_Feedmill_location_Feedmill}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/{{Gukje_Feedmill_location_Feedmill}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/{{Gukje_Feedmill_location_Feedmill}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Blue catch area Lookup
+GET {{baseUrl}}/414/{{Gukje_Feedmill_location_Feedmill}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+### ------------------------ Haeundae Hatch & Nursery Co. Location
+
+#GLN: urn:gdst:traceability-solution.com:location:loc:dfa01b63-aaaa-4454-b13c-c53d6bdfab43.hatchery
+#Owning Party: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
+#Information Provider: urn:gdst:traceability-solution.com:party:dfa01b63-aaaa-4454-b13c-c53d6bdfab43
+#@Gukje_Feedmill_location_Feedmill=urn:gdst:traceability-solution.com:loc:8800037.2000012
+@haeundae_farm_location=urn:gdst:example.org:location:loc:8800048.2000012
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/{{haeundae_farm_location}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/{{haeundae_farm_location}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/{{haeundae_farm_location}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+### Blue catch area Lookup
+GET {{baseUrl}}/414/{{haeundae_farm_location}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+
+
+### ------------------------ Jagalchi Tidal Farm Location
+
+
+
+#GLN: urn:gdst:traceability-solution.com:location:loc:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3.farm
+#Owning Party: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
+#Information Provider: urn:gdst:traceability-solution.com:party:d8f9f0b4-a03d-41a3-aa60-b2be0fd9c2f3
+
+@jagalchi_tidal_processing_location=urn:gdst:example.org:location:loc:8800057.2000012
+
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/{{jagalchi_tidal_processing_location}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/{{jagalchi_tidal_processing_location}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/{{jagalchi_tidal_processing_location}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### Blue catch area Lookup
+GET {{baseUrl}}/414/{{jagalchi_tidal_processing_location}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+
+
+
+### ------------------------ BlueWave Retail  Location
+
+
+#GLN: urn:gdst:traceability-solution.com:location:loc:30bad813-7fb9-43be-8caa-7e0876552eaa.processingplant
+#Owning Party: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
+#Information Provider: urn:gdst:traceability-solution.com:party:30bad813-7fb9-43be-8caa-7e0876552eaa
+
+#@bluewave_retailer_loc=urn:gdst:traceability-solution.com:loc:8800067.2000012
+@bluewave_retailer_loc=urn:gdst:example.org:location:loc:8800067.2000012
+POST {{SOLUTION-PROVIDER-URL}}/new
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "anchor": "/414/{{bluewave_retailer_loc}}",
+  "itemDescription": "Busan Processing Facility",
+  "defaultLinktype": "gs1:masterData",
+  "links": [
+    {
+      "linktype": "gs1:epcis",
+      "href": "http://210.113.134.235:24242/epcis/v2",
+      "title": "Oliot EPCIS Server",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    },
+    {
+      "linktype": "gs1:masterData",
+      "href": "http://210.113.134.235:24240/gs1webvoc/414/{{bluewave_retailer_loc}}",
+      "title": "Master Data",
+      "type": "application/json",
+      "hreflang": [
+        "en"
+      ]
+    }
+  ]
+}
+
+### DL Lookup
+GET {{SOLUTION-PROVIDER-URL}}/414/{{bluewave_retailer_loc}}?linkType=gs1:masterData
+Accept: application/json
+X-API-Key: {{apiKey}}
+
+
+### Blue catch area Lookup
+GET {{baseUrl}}/414/{{bluewave_retailer_loc}}
+Accept: application/ld+json
+X-API-Key: {{apiKey}}
+

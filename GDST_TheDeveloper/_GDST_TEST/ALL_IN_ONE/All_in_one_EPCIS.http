@@ -1,0 +1,2286 @@
+
+@eventID_v1_hatching=urn:uuid:b749c2ce-f637-46e8-9679-152c2efe4a52
+
+@eventID_v2_feed=urn:uuid:e84965d8-d9b9-41ff-8fa2-b066717819bd
+
+@eventID_v3_harvest=urn:uuid:b1e69719-dec6-4c24-b0fd-e2634cc7150a
+
+@eventID_v4_shipping=urn:uuid:73dd5695-7f35-4e8f-8573-3b2d09151522
+
+
+@eventID_v5_catch=urn:uuid:f2a49d51-fc4c-4489-83fd-5289671a7237
+
+
+@eventID_v6_transshipment=urn:uuid:b1e68919-dec6-4c24-b0fd-e2734cc7150a
+
+@eventID_v7_landing=urn:uuid:eeb689aa-ae0b-4a01-afba-f2a9ce6cf53a
+
+@eventID_v8_shipping=urn:uuid:ad6e0695-3882-41dd-9e2f-9e36840fc8e1
+
+@eventID_v9_receipt=urn:uuid:50568403-d57a-4b64-afec-d8ece3552ac0
+
+@eventID_v10_receipt=urn:uuid:15c42423-5a6a-4e2e-a0d7-174e2a3dd578
+
+@eventID_v11_Commingling=urn:uuid:30b1a390-df49-4245-86a8-7d08546a0c9b
+
+@eventID_v12_Canning=urn:uuid:9d0b0d21-b211-4862-83e3-c387e2225cd2
+
+@eventID_v13_Packing=urn:uuid:8acaa475-9b5c-4a16-ba90-c91a800253ec
+
+@eventID_v14_shipping=urn:uuid:71360141-03c3-43ad-a4f1-007421584f2f
+
+@eventID_v15_receipt=urn:uuid:l2d40c6e0-c053-46ba-b8ae-dd53e1f20d4a
+
+@eventID_v16_unpacking=urn:uuid:4f144ba8-252a-4177-8a59-0a8f87bf098f
+
+
+
+### Products 
+@container_aqua=urn:epc:id:sscc:88000269.10000000
+
+@apiKey = 62237afe89d3fbec955b34f3b9b447948a612c70b591cd5b5837d3aad0a6ac48
+@SOLUTION-PROVIDER-EPCIS-URL=http://210.113.134.235:24242/epcis/v2
+
+### -----------------------------------------------------------------------------------------------------------------------------------Organization Definitions 
+@Gukje_Feedmill_party=urn:gdst:example.org:party:8800037.2000002
+@haeundae_farm_party=urn:gdst:example.org:party:8800048.2000002
+@jagalchi_tidal_processing_party=urn:gdst:example.org:party:8800057.2000002
+@bluewave_retailer_party=urn:gdst:example.org:party:8800067.2000002
+
+@blue_vessel_operator_party=urn:gdst:example.org:party:8800026.2000002
+### -----------------------------------------------------------------------------------------------------------------------------------Place Definitions 
+@Gukje_Feedmill_location_Feedmill=urn:gdst:example.org:location:loc:8800037.2000012
+@haeundae_farm_location=urn:gdst:example.org:location:loc:8800048.2000012
+@jagalchi_tidal_processing_location=urn:gdst:example.org:location:loc:8800057.2000012
+#@bluewave_retailer_loc=urn:gdst:example.org:location:loc:8800067.2000012
+@bluewave_retailer_loc=urn:gdst:example.org:location:loc:8800067.2000012
+
+@blue_vessel_operator_location_catcharea=urn:gdst:example.org:location:loc:8800026.2000012
+
+@blue_vessel_operator_location_port=urn:gdst:example.org:location:loc:8800026.2000022
+
+### -----------------------------------------------------------------------------------------------------------------------------------Product Definitions 
+@vegetables_product=urn:gdst:example.org:product:class:88000197.2000002
+@soy_product=urn:gdst:example.org:product:class:8800017.2000002
+@Atlantic_Salmon_Fry_Product=urn:gdst:example.org:product:class:8800028.2000002
+@Atlantic_Salmon_Product=urn:gdst:example.org:product:class:8800027.2000002
+
+@product_tuna_lot=urn:gdst:example.org:product:lot:class:8800026.2000001.lot345
+
+
+### get Event by EventID
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?
+X-API-Key: {{apiKey}} 
+
+### ===============================================================================================================================Start
+
+### ------------------------------------------------------------------------------------------------------------------- V1 Hatching  Event
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+      {
+        "type": "ObjectEvent",
+        "eventTime": "2024-02-22T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v1_hatching}}",
+        "epcList": [],
+        "action": "ADD",
+        "bizStep": "urn:gdst:bizstep:hatching",
+        "disposition": "active",
+        "bizLocation": {
+          "id": "{{haeundae_farm_location}}"
+        },
+        "quantityList": [
+          {
+            "epcClass": "urn:gdst:example.org:product:lot:class:8800028.2000002.lot01272020",
+            "quantity": 250.0,
+            "uom": "KGM"
+          }
+        ],
+        "ilmd": {
+          "gdst:broodstockSource": "domestic",
+          "cbvmda:lotNumber": "2000002",
+          "cbvmda:certificationList": {
+            "certification": [
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                "certificationAgency": "Feed Certificate Authority",
+                "certificationStandard": "Feed Certificate Standard",
+                "certificationValue": "SIMP.LPCO.2",
+                "certificationIdentification": "10161781"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                "certificationAgency": "MSC",
+                "certificationStandard": "MSC Chain of Custody",
+                "certificationValue": "MSC_COC_1234567890",
+                "certificationIdentification": "MSC_COC_1234567890"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                "certificationAgency": "WHO",
+                "certificationStandard": "WHO Human Decency Policy",
+                "certificationValue": "1234567890",
+                "certificationIdentification": "0987654321"
+              }
+            ]
+          },
+          "gdst:broodstockSources": "Domestic"
+        },
+        "gdst:productOwner": "{{haeundae_farm_party}}",
+        "gdst:humanWelfarePolicy": "3P Audit",
+        "cbvmda:informationProvider": "{{haeundae_farm_party}}"
+      }
+    ]
+  }
+}
+
+### get Event by EventID[V1 Hatching  Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v1_hatching}}"]
+X-API-Key: {{apiKey}} 
+
+
+### ------------------------------------------------------------------------------------------------------------------- V2 Feed  Event
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+      {
+        "type": "ObjectEvent",
+        "epcList": [],
+        "action": "ADD",
+        "eventTime": "2024-01-22T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v2_feed}}",
+        "quantityList": [
+              {
+            "epcClass": "urn:gdst:example.org:product:lot:class:88000197.2000002.lot12232019",
+            "quantity": 2500.0,
+            "uom": "KGM"
+          }
+            ],
+        "bizStep": "commissioning",
+        "disposition": "active",
+        "bizLocation": {
+          "id": "{{Gukje_Feedmill_location_Feedmill}}"
+        },
+        "ilmd": {
+              "gdst:proteinSource": "wild caught",
+              "cbvmda:itemExpirationDate": "2026-02-03T03:00:00.0000000+00:00",
+              "cbvmda:productionDate": "2022-02-03T03:00:00.0000000+00:00",
+              "cbvmda:countryOfOrigin": "KR",
+              "cbvmda:lotNumber": "2000002",
+              "cbvmda:certificationList": {
+                "certification": [
+                  {
+                    "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                    "certificationAgency": "test",
+                    "certificationStandard": "test",
+                    "certificationValue": "test",
+                    "certificationIdentification": "test"
+                  },
+                  {
+                    "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                    "certificationAgency": "test",
+                    "certificationStandard": "test",
+                    "certificationValue": "test",
+                    "certificationIdentification": "test"
+                  },
+                  {
+                    "gdst:certificationType": "urn:gdst:certType:processorLicense",
+                    "certificationAgency": "test",
+                    "certificationStandard": "test",
+                    "certificationValue": "test",
+                    "certificationIdentification": "test"
+                  },
+                  {
+                    "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                    "certificationAgency": "test",
+                    "certificationStandard": "test",
+                    "certificationValue": "test",
+                    "certificationIdentification": "test"
+                  }
+                ]
+              }
+            },
+        "gdst:productOwner": "{{Gukje_Feedmill_party}}",
+        "gdst:humanWelfarePolicy": "3P Audit",
+        "cbvmda:informationProvider": "{{Gukje_Feedmill_party}}"
+      }
+    ]
+  }
+}
+
+### get Event by EventID[V2 Feed  Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v2_feed}}"]
+X-API-Key: {{apiKey}} 
+
+
+### ------------------------------------------------------------------------------------------------------------------- V3 Farm Harvest  Event
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+      {
+        "type": "TransformationEvent",
+        "eventTime": "2024-03-22T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v3_harvest}}",
+        "inputQuantityList": [
+          {
+            "epcClass": "urn:gdst:example.org:product:lot:class:8800028.2000002.lot01272020",
+            "quantity": 250.0,
+            "uom": "KGM"
+          },
+          {
+            "epcClass": "urn:gdst:example.org:product:lot:class:88000197.2000002.lot12232019",
+            "quantity": 2500.0,
+            "uom": "KGM"
+          }
+        ],
+        "outputQuantityList": [
+          {
+            "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000002.lot01282020",
+            "quantity": 1000.0,
+            "uom": "KGM"
+          }
+        ],
+        "bizStep": "urn:gdst:bizStep:farmHarvest",
+        "disposition": "active",
+        "bizLocation": {
+          "id": "{{haeundae_farm_location}}"
+        },
+        "ilmd": {
+          "gdst:aquacultureMethod": "Cage and Pen",
+          "cbvmda:productionMethodForFishAndSeafoodCode": "AQUACULTURE",
+          "cbvmda:certificationList": {
+            "certification": [
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                "certificationAgency": "Farm Certificate Authority",
+                "certificationStandard": "Farm Certificate Standard",
+                "certificationValue": "SIMP.LPCO.2",
+                "certificationIdentification": "10161781"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                "certificationAgency": "MSC",
+                "certificationStandard": "MSC Chain of Custody",
+                "certificationValue": "MSC_COC_1234567890",
+                "certificationIdentification": "MSC_COC_1234567890"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                "certificationAgency": "WHO",
+                "certificationStandard": "WHO Human Decency Policy",
+                "certificationValue": "1234567890",
+                "certificationIdentification": "0987654321"
+              }
+            ]
+          }
+        },
+        "gdst:productOwner": "{{haeundae_farm_party}}",
+        "gdst:humanWelfarePolicy": "3P Audit",
+        "cbvmda:informationProvider": "{{haeundae_farm_party}}"
+      }
+    ]
+  }
+}
+
+
+### get Event by EventID[V3 Farm Harvest  Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v3_harvest}}"]
+X-API-Key: {{apiKey}} 
+
+### ------------------------------------------------------------------------------------------------------------------- V4 Shipping  Event H-J
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+        {
+            "type": "ObjectEvent",
+            "eventTime": "2024-04-22T00:00:00.0000000+09:00",
+            "eventTimeZoneOffset": "+09:00",
+            "eventID": "{{eventID_v4_shipping}}",
+            "epcList": [],
+            "action": "OBSERVE",
+            "bizStep": "shipping",
+            "bizLocation": {
+                "id": "{{haeundae_farm_location}}"
+            },
+            "quantityList": [
+                {
+                    "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000002.lot01282020",
+                    "quantity": 1000.0,
+                    "uom": "KGM"
+                }
+            ],
+            "sourceList": [
+                {
+                    "type": "owning_party",
+                    "source": "{{haeundae_farm_party}}"
+                },
+                {
+                    "type": "location",
+                    "source": "{{haeundae_farm_location}}"
+                }
+            ],
+            "destinationList": [
+                {
+                    "type": "owning_party",
+                    "destination": "{{jagalchi_tidal_processing_party}}"
+                },
+                {
+                    "type": "location",
+                    "destination": "{{jagalchi_tidal_processing_location}}"
+                }
+            ],
+            "gdst:productOwner": "{{haeundae_farm_party}}",
+            "cbvmda:certificationList": {
+                "certification": [
+                    {
+                        "gdst:certificationType": "urn:gdst:certtype:harvestcoc"
+                    }
+                ]
+            },
+            "cbvmda:informationProvider": "{{haeundae_farm_party}}"
+        }
+      ]
+    }
+}
+
+
+### get Event by EventID[V4 Shipping  Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v4_shipping}}"]
+X-API-Key: {{apiKey}} 
+
+
+### ------------------------------------------------------------------------------------------------------------------- V5 Catch  (Fishing) Event
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    { "xsi": "http://www.w3.org/2001/XMLSchema-instance/" },
+    { "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/" },
+    { "gdst": "https://traceability-dialogue.org/epcis/" }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "Blue Current Fisheries Co.",
+  "receiver": "Yeongdo Ocean Processing Co.",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+      {
+        "type": "ObjectEvent",
+        "eventTime": "2024-01-27T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v5_catch}}",
+        "epcList": [],
+        "action": "ADD",
+        "bizStep": "urn:gdst:bizstep:fishingEvent",
+        "disposition": "active",
+        "bizLocation": {
+          "id": "{{blue_vessel_operator_location_catcharea}}"
+        },
+        "quantityList": [
+          {
+            "epcClass": "{{product_tuna_lot}}",
+            "quantity": 500.0,
+            "uom": "KGM"
+          }
+        ],
+        "ilmd": {
+          "cbvmda:vesselCatchInformationList": {
+            "cbvmda:vesselCatchInformation": [
+              {
+                "cbvmda:economicZone": "urn:gdst:eez:KOR",
+                "cbvmda:fishingGearTypeCode": "urn:gdst:gear:1.2",
+                "cbvmda:vesselFlagState": "KR",
+                "cbvmda:vesselID": "KRPUS-FV-0001",
+                "cbvmda:vesselName": "FV Blue Current",
+                "gdst:fisheryImprovementProject": "Example Fishery Improvement Project",
+                "gdst:gpsAvailability": true,
+                "gdst:imoNumber": "IMO.9876543",
+                "gdst:satelliteTrackingAuthority": "Korea",
+                "gdst:subnationalPermitArea": "Busan Coastal Permit Area",
+                "gdst:vesselPublicRegistry": "https://registry.example.kr/vessels/KRPUS-FV-0001",
+                "gdst:vesselTripDate": "2020-01-25T00:00:00.0000000+09:00",
+                "cbvmda:catchArea": "urn:gdst:fao:61",
+                "gdst:rfmoArea": "urn:gdst:rfmo:wcpfc"
+              }
+            ]
+          },
+          "cbvmda:productionMethodForFishAndSeafoodCode": "MARINE_FISHERY",
+          "cbvmda:certificationList": {
+            "certification": [
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                "certificationAgency": "Korea Catch Certificate Authority",
+                "certificationStandard": "Korea Catch Certificate Standard",
+                "certificationValue": "KRPUS.LPCO.2",
+                "certificationIdentification": "10161781"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:fishingAuth",
+                "certificationAgency": "Busan Fishing Authority",
+                "certificationStandard": "Busan Fishing Authorization",
+                "certificationValue": "KRPUS-1234567890",
+                "certificationIdentification": "0987654321"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                "certificationAgency": "WHO",
+                "certificationStandard": "WHO Human Decency Policy",
+                "certificationValue": "1234567890",
+                "certificationIdentification": "0987654321"
+              }
+            ]
+          }
+        },
+        "gdst:productOwner": "{{blue_vessel_operator_party}}",
+        "gdst:humanWelfarePolicy": "Internal",
+        "cbvmda:informationProvider": "{{blue_vessel_operator_party}}"
+      }
+    ]
+  }
+}
+### get Event by EventID [V5 Catch Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v5_catch}}"]
+X-API-Key: {{apiKey}} 
+
+
+
+
+### ------------------------------------------------------------------------------------------------------------------- V6  transshipment Event
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+        {
+            "eventTime": "2024-02-10T00:00:00.0000000+09:00",
+            "eventTimeZoneOffset": "+09:00",
+            "eventID": "{{eventID_v6_transshipment}}",
+            "type": "ObjectEvent",
+            "epcList": [],
+            "action": "OBSERVE",
+            "bizStep": "urn:gdst:bizStep:transshipment",
+            "disposition": "active",
+            "readPoint": {
+              "id": "geo:35.3232,129.232"
+            },
+            "bizLocation": {
+              "id": "{{blue_vessel_operator_location_catcharea}}"
+            },
+            "quantityList": [
+              {
+                "epcClass": "{{product_tuna_lot}}",
+                "quantity": 500.0,
+                "uom": "KGM"
+              }
+            ],
+            "gdst:productOwner": "{{haeundae_farm_party}}",
+            "gdst:humanWelfarePolicy": "3P Audit",
+            "cbvmda:unloadingPort": "PORTSD",
+            "cbvmda:certificationList": {
+              "certification": [
+                {
+                  "gdst:certificationType": "urn:gdst:certType:transshipmentAuth",
+                  "certificationAgency": "test",
+                  "certificationStandard": "test",
+                  "certificationValue": "test",
+                  "certificationIdentification": "test"
+                },
+                {
+                  "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                  "certificationAgency": "test",
+                  "certificationStandard": "test",
+                  "certificationValue": "test",
+                  "certificationIdentification": "test"
+                },
+                {
+                  "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                  "certificationAgency": "test",
+                  "certificationStandard": "test",
+                  "certificationValue": "test",
+                  "certificationIdentification": "test"
+                }
+              ]
+            },
+            "cbvmda:informationProvider": "{{haeundae_farm_party}}"
+          }
+    ]
+  }
+}
+
+
+### get Event by EventID [V6  transshipment Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v6_transshipment}}"]
+X-API-Key: {{apiKey}} 
+
+
+
+### ------------------------------------------------------------------------------------------------------------------- V7 Landing Event
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+      {
+        "type": "ObjectEvent",
+        "eventTime": "2024-02-27T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v7_landing}}",
+        "epcList": [],
+        "action": "OBSERVE",
+        "bizStep": "urn:gdst:bizstep:landing",
+        "bizLocation": {
+          "id": "{{blue_vessel_operator_location_port}}"
+        },
+        "quantityList": [
+          {
+            "epcClass": "{{product_tuna_lot}}",
+            "quantity": 500.0,
+            "uom": "KGM"
+          }
+        ],
+        "cbvmda:informationProvider": "{{blue_vessel_operator_party}}",
+        "cbvmda:certificationList": {
+              "certification": [
+                {
+                  "gdst:certificationType": "urn:gdst:certType:landingAuth",
+                  "certificationAgency": "test",
+                  "certificationStandard": "test",
+                  "certificationValue": "test",
+                  "certificationIdentification": "test"
+                },
+                {
+                  "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                  "certificationAgency": "test",
+                  "certificationStandard": "test",
+                  "certificationValue": "test",
+                  "certificationIdentification": "test"
+                }
+              ]
+            },
+        "cbvmda:unloadingPort": "{{blue_vessel_operator_location_port}}",
+        "gdst:humanWelfarePolicy": "3P Audit",
+        "gdst:productOwner": "{{blue_vessel_operator_party}}"
+      }
+    ]
+  }
+}
+
+### get Event by EventID [V7 Landing Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v7_landing}}"]
+X-API-Key: {{apiKey}}
+
+
+### ------------------------------------------------------------------------------------------------------------------- V8 Shipping Event
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+      {
+        "type": "ObjectEvent",
+        "eventTime": "2024-03-27T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v8_shipping}}",
+        "epcList": [],
+        "action": "OBSERVE",
+        "bizStep": "shipping",
+        "bizLocation": {
+            "id": "{{blue_vessel_operator_location_port}}"
+        },
+        "quantityList": [
+          {
+            "epcClass": "{{product_tuna_lot}}",
+            "quantity": 500.0,
+            "uom": "KGM"
+          }
+        ],
+        "sourceList": [
+            {
+                "type": "owning_party",
+                "source": "{{blue_vessel_operator_party}}"
+            },
+            {
+                "type": "location",
+                "source": "{{blue_vessel_operator_location_port}}"
+            }
+        ],
+        "destinationList": [
+            {
+                "type": "owning_party",
+                "destination": "{{jagalchi_tidal_processing_party}}"
+            },
+            {
+                "type": "location",
+                "destination": "{{jagalchi_tidal_processing_location}}"
+            }
+        ],
+        "gdst:productOwner": "{{blue_vessel_operator_party}}",
+        "cbvmda:certificationList": {
+            "certification": [
+                {
+                    "gdst:certificationType": "urn:gdst:certtype:humanPolicy"
+                },
+                {
+                    "gdst:certificationType": "urn:gdst:certtype:harvestcoc"
+                }
+            ]
+        },
+        "cbvmda:informationProvider": "{{blue_vessel_operator_party}}"
+      }
+    ]
+  }
+}
+
+
+### get Event by EventID [V8 Shipping Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v8_shipping}}"]
+X-API-Key: {{apiKey}} 
+
+
+### ------------------------------------------------------------------------------------------------------------------- V9 receiving Event
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+      {
+        "type": "ObjectEvent",
+        "eventTime": "2024-04-27T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v9_receipt}}",
+        "epcList": [],
+        "action": "OBSERVE",
+        "bizStep": "receiving",
+        "bizLocation": {
+            "id": "{{jagalchi_tidal_processing_location}}"
+        },
+        "quantityList": [
+          {
+            "epcClass": "{{product_tuna_lot}}",
+            "quantity": 500.0,
+            "uom": "KGM"
+          }
+        ],
+        "sourceList": [
+            {
+                "type": "owning_party",
+                "source": "{{blue_vessel_operator_party}}"
+            },
+            {
+                "type": "location",
+                "source": "{{blue_vessel_operator_location_port}}"
+            }
+        ],
+        "destinationList": [
+            {
+                "type": "owning_party",
+                "destination": "{{jagalchi_tidal_processing_party}}"
+            },
+            {
+                "type": "location",
+                "destination": "{{jagalchi_tidal_processing_location}}"
+            }
+        ],
+        "gdst:productOwner": "{{jagalchi_tidal_processing_party}}",
+        "cbvmda:certificationList": {
+            "certification": [
+                {
+                    "gdst:certificationType": "urn:gdst:certtype:humanPolicy"
+                },
+                {
+                    "gdst:certificationType": "urn:gdst:certtype:harvestcoc"
+                }
+            ]
+        },
+        "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}"
+      }
+    ]
+  }
+}
+
+
+### get Event by EventID [V9 receiving Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v9_receipt}}"]
+X-API-Key: {{apiKey}} 
+
+### ------------------------------------------------------------------------------------------------------------------- V10 Receiving  Event 
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+        {
+            "type": "ObjectEvent",
+            "eventTime": "2024-05-10T00:00:00.0000000+09:00",
+            "eventTimeZoneOffset": "+09:00",
+            "eventID": "{{eventID_v10_receipt}}",
+            "epcList": [],
+            "action": "OBSERVE",
+            "bizStep": "receiving",
+            "bizLocation": {
+                "id": "{{jagalchi_tidal_processing_location}}"
+            },
+            "quantityList": [
+                {
+                    "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000002.lot01282020",
+                    "quantity": 1000.0,
+                    "uom": "KGM"
+                }
+            ],
+            "sourceList": [
+                {
+                    "type": "owning_party",
+                    "source": "{{haeundae_farm_party}}"
+                },
+                {
+                    "type": "location",
+                    "source": "{{haeundae_farm_location}}"
+                }
+            ],
+            "destinationList": [
+                {
+                    "type": "owning_party",
+                    "destination": "{{jagalchi_tidal_processing_party}}"
+                },
+                {
+                    "type": "location",
+                    "destination": "{{jagalchi_tidal_processing_location}}"
+                }
+            ],
+            "gdst:productOwner": "{{haeundae_farm_party}}",
+            "cbvmda:certificationList": {
+                "certification": [
+                    {
+                        "gdst:certificationType": "urn:gdst:certtype:harvestcoc"
+                    }
+                ]
+            },
+            "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}"
+        }
+      ]
+    }
+}
+
+
+### get Event by EventID [V10 Receiving  Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v10_receipt}}"]
+X-API-Key: {{apiKey}} 
+
+### ------------------------------------------------------------------------------------------------------------------- V11 Commingling  Event
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+      "type": "EPCISDocument",
+      "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+      "schemaVersion": "2.0",
+      "sender": "test",
+      "receiver": "test",
+      "instanceIdentifier": "9999",
+      "epcisBody": {
+        "eventList": [
+            {
+                "type": "TransformationEvent",
+                "eventTime": "2024-05-22T00:00:00.0000000+09:00",
+                "eventTimeZoneOffset": "+09:00",
+                "eventID": "{{eventID_v11_Commingling}}",
+                "inputQuantityList": [
+                    {
+                        "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000002.lot01282020",
+                        "quantity": 1000.0,
+                        "uom": "KGM"
+                    },
+                    {
+                      "epcClass": "{{product_tuna_lot}}",
+                      "quantity": 500.0,
+                      "uom": "KGM"
+                    }
+                ],
+                "outputQuantityList": [
+                    {
+                        "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000002.lot01282022",
+                        "quantity": 1500.0,
+                        "uom": "KGM"
+                    }
+                ],
+                "bizStep": "urn:gdst:bizStep:commingling",
+                "disposition": "active",
+                "bizLocation": {
+                    "id": "{{jagalchi_tidal_processing_location}}"
+                },
+                "ilmd": {
+                    "cbvmda:productionDate": "2024-05-22T00:00:00.0000000+09:00",
+                    "cbvmda:lotNumber": "lot01282022"
+                },
+                 "gdst:productOwner": "{{jagalchi_tidal_processing_party}}",
+                 "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}"
+                }
+          ]
+      }
+}
+
+### get Event by EventID [V11 Commingling  Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v11_Commingling}}"]
+X-API-Key: {{apiKey}} 
+
+
+
+### ------------------------------------------------------------------------------------------------------------------- V12 canning  Event
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+      "type": "EPCISDocument",
+      "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+      "schemaVersion": "2.0",
+      "sender": "test",
+      "receiver": "test",
+      "instanceIdentifier": "9999",
+      "epcisBody": {
+        "eventList": [
+            {
+                "type": "TransformationEvent",
+                "eventTime": "2024-06-22T00:00:00.0000000+09:00",
+                "eventTimeZoneOffset": "+09:00",
+                "eventID": "{{eventID_v12_Canning}}",
+                "inputQuantityList": [
+                    {
+                        "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000002.lot01282022",
+                        "quantity": 1500.0,
+                        "uom": "KGM"
+                    }
+                ],
+                "outputQuantityList": [
+                    {
+                        "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000003.lot01284044",
+                        "quantity": 1000.0,
+                        "uom": "KGM"
+                    }
+                ],
+                "bizStep": "commissioning",
+                "disposition": "active",
+                "bizLocation": {
+                    "id": "{{jagalchi_tidal_processing_location}}"
+                },
+                "ilmd": {
+                    "cbvmda:itemExpirationDate": "2027-01-22T03:00:00.0000000+00:00",
+                    "cbvmda:productionDate": "2024-06-22T00:00:00.0000000+09:00",
+                    "cbvmda:countryOfOrigin": "KR",
+                    "cbvmda:lotNumber": "lot01284044",
+                    "cbvmda:certificationList": {
+                      "certification": [
+                        {
+                          "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                          "certificationAgency": "test",
+                          "certificationStandard": "test",
+                          "certificationValue": "test",
+                          "certificationIdentification": "test"
+                        },
+                        {
+                          "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                          "certificationAgency": "test",
+                          "certificationStandard": "test",
+                          "certificationValue": "test",
+                          "certificationIdentification": "test"
+                        },
+                        {
+                          "gdst:certificationType": "urn:gdst:certType:processorLicense",
+                          "certificationAgency": "test",
+                          "certificationStandard": "test",
+                          "certificationValue": "test",
+                          "certificationIdentification": "test"
+                        },
+                        {
+                          "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                          "certificationAgency": "test",
+                          "certificationStandard": "test",
+                          "certificationValue": "test",
+                          "certificationIdentification": "test"
+                        }
+                      ]
+                    }
+                  },
+                 "gdst:productOwner": "{{jagalchi_tidal_processing_party}}",
+                 "gdst:humanWelfarePolicy": "3P Audit",
+                 "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}"
+                }
+          ]
+      }
+}
+
+### get Event by EventID [V12 canning  Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v12_Canning}}"]
+X-API-Key: {{apiKey}} 
+
+
+
+### ------------------------------------------------------------------------------------------------------------------- V13 Packing  Event
+
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+        {
+      "type": "AggregationEvent",
+		  "eventID": "{{eventID_v13_Packing}}",
+		  "eventTime": "2024-07-22T00:00:00.0000000+09:00",
+      "eventTimeZoneOffset": "+09:00",
+		  "parentID":"{{container_aqua}}",
+		  "childEPCs": [],
+		  "action": "ADD",
+		  "bizStep": "packing",
+		  "disposition": "active",
+		  "readPoint": {"id": "{{jagalchi_tidal_processing_location}}"},
+		  "bizLocation": {"id": "{{jagalchi_tidal_processing_location}}"},
+		  "childQuantityList": [
+		  	{
+          "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000003.lot01284044",
+          "quantity": 1000.0,
+          "uom": "KGM"
+        }
+		  ],
+      "cbvmda:certificationList": {
+          "certification": [
+            {
+              "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+              "certificationAgency": "test",
+              "certificationStandard": "test",
+              "certificationValue": "test",
+              "certificationIdentification": "test"
+            },
+            {
+              "gdst:certificationType": "urn:gdst:certType:aggregatorLicense",
+              "certificationAgency": "test",
+              "certificationStandard": "test",
+              "certificationValue": "test",
+              "certificationIdentification": "test"
+            }
+          ]
+        },
+        "gdst:productOwner": "{{jagalchi_tidal_processing_party}}",
+        "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}"
+      }
+      ]
+    }
+}
+
+### get Event by EventID [V13 Packing  Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v13_Packing}}"]
+X-API-Key: {{apiKey}} 
+
+
+
+
+### ------------------------------------------------------------------------------------------------------------------- V14 Shipping  Event (aggregated container)
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+        {
+            "type": "ObjectEvent",
+            "eventTime": "2024-08-22T00:00:00.0000000+09:00",
+            "eventTimeZoneOffset": "+09:00",
+            "eventID": "{{eventID_v14_shipping}}", 
+            "epcList": ["{{container_aqua}}"],
+            "action": "OBSERVE",
+            "bizStep": "shipping",
+            "bizLocation": {
+                "id": "{{jagalchi_tidal_processing_location}}"
+            },
+            "sourceList": [
+                {
+                    "type": "owning_party",
+                    "source": "{{jagalchi_tidal_processing_party}}"
+                },
+                {
+                    "type": "location",
+                    "source": "{{jagalchi_tidal_processing_location}}"
+                }
+            ],
+            "destinationList": [
+                {
+                    "type": "owning_party",
+                    "destination": "{{bluewave_retailer_party}}"
+                },
+                {
+                    "type": "location",
+                    "destination": "{{bluewave_retailer_party}}"
+                }
+            ],
+            "gdst:productOwner": "{{jagalchi_tidal_processing_party}}",
+            "gdst:humanWelfarePolicy": "3P Audit",
+            "cbvmda:certificationList": {
+              "certification": [
+                {
+                  "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                  "certificationAgency": "test",
+                  "certificationStandard": "test",
+                  "certificationValue": "test",
+                  "certificationIdentification": "test"
+                }
+              ]
+            },
+            "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}"
+        }
+      ]
+    }
+}
+
+### get Event by EventID [V14 Shipping  Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v14_shipping}}"]
+X-API-Key: {{apiKey}} 
+
+
+### ------------------------------------------------------------------------------------------------------------------- V15 Receipt  Event (aggregated container)
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+        {
+        "type": "ObjectEvent",
+        "eventTime": "2024-09-22T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v15_receipt}}",
+        "epcList": ["{{container_aqua}}"],
+        "action": "OBSERVE",
+        "bizStep": "receiving",
+        "bizLocation": {
+            "id": "{{bluewave_retailer_loc}}"
+        },
+        "sourceList": [
+            {
+                "type": "owning_party",
+                "source": "{{jagalchi_tidal_processing_party}}"
+            },
+            {
+                "type": "location",
+                "source": "{{jagalchi_tidal_processing_location}}"
+            }
+        ],
+        "destinationList": [
+            {
+                "type": "owning_party",
+                "destination": "{{bluewave_retailer_party}}"
+            },
+            {
+                "type": "location",
+                "destination": "{{bluewave_retailer_loc}}"
+            }
+        ],
+        "gdst:productOwner": "{{bluewave_retailer_party}}",
+        "gdst:humanWelfarePolicy": "3P Audit",
+        "cbvmda:certificationList": {
+            "certification": [
+                {
+                  "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                  "certificationAgency": "test",
+                  "certificationStandard": "test",
+                  "certificationValue": "test",
+                  "certificationIdentification": "test"
+                }
+              ]
+        },
+        "cbvmda:informationProvider": "{{bluewave_retailer_party}}"
+        }
+      ]
+    }
+}
+
+### get Event by EventID [V15 Receipt  Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v15_receipt}}"]
+X-API-Key: {{apiKey}} 
+
+
+### ------------------------------------------------------------------------------------------------------------------- V16 Unpacking  Event
+
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+        {
+        "type": "AggregationEvent",
+        "eventID": "{{eventID_v16_unpacking}}",
+        "eventTime": "2024-10-22T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "parentID":"{{container_aqua}}",
+        "childEPCs": [],
+        "action": "DELETE",
+        "bizStep": "unpacking",
+        "disposition": "active",
+        "readPoint": {"id": "{{bluewave_retailer_loc}}"},
+        "bizLocation": {"id": "{{bluewave_retailer_loc}}"},
+        "cbvmda:certificationList": {
+            "certification": [
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                "certificationAgency": "test",
+                "certificationStandard": "test",
+                "certificationValue": "test",
+                "certificationIdentification": "test"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:aggregatorLicense",
+                "certificationAgency": "test",
+                "certificationStandard": "test",
+                "certificationValue": "test",
+                "certificationIdentification": "test"
+              }
+            ]
+          },
+        "gdst:productOwner": "{{bluewave_retailer_party}}",
+        "cbvmda:informationProvider": "{{bluewave_retailer_party}}"
+        }
+      ]
+    }
+}
+
+### get Event by EventID [V16 Unpacking  Event]
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?EQ_eventID=["{{eventID_v16_unpacking}}"]
+X-API-Key: {{apiKey}} 
+
+
+
+### =======================================================================================================================END
+
+### get Event by EventID
+GET {{SOLUTION-PROVIDER-EPCIS-URL}}/events?
+X-API-Key: {{apiKey}} 
+
+
+
+### -------------------------------------------------------------------------------------------------------------------
+########################## 16 in one
+POST {{SOLUTION-PROVIDER-EPCIS-URL}}/capture
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "@context": [
+    "https://ref.gs1.org/standards/epcis/epcis-context.jsonld",
+    {
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance/"
+    },
+    {
+      "sbdh": "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader/"
+    },
+    {
+      "gdst": "https://traceability-dialogue.org/epcis/"
+    }
+  ],
+  "type": "EPCISDocument",
+  "creationDate": "2001-12-17T09:30:47.0000000+00:00",
+  "schemaVersion": "2.0",
+  "sender": "test",
+  "receiver": "test",
+  "instanceIdentifier": "9999",
+  "epcisBody": {
+    "eventList": [
+       {
+        "type": "ObjectEvent",
+        "eventTime": "2024-02-22T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v1_hatching}}",
+        "epcList": [],
+        "action": "ADD",
+        "bizStep": "urn:gdst:bizstep:hatching",
+        "disposition": "active",
+        "bizLocation": {
+          "id": "{{haeundae_farm_location}}"
+        },
+        "quantityList": [
+          {
+            "epcClass": "urn:gdst:example.org:product:lot:class:8800028.2000002.lot01272020",
+            "quantity": 250.0,
+            "uom": "KGM"
+          }
+        ],
+        "ilmd": {
+          "gdst:broodstockSource": "domestic",
+          "cbvmda:lotNumber": "2000002",
+          "cbvmda:certificationList": {
+            "certification": [
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                "certificationAgency": "Feed Certificate Authority",
+                "certificationStandard": "Feed Certificate Standard",
+                "certificationValue": "SIMP.LPCO.2",
+                "certificationIdentification": "10161781"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                "certificationAgency": "MSC",
+                "certificationStandard": "MSC Chain of Custody",
+                "certificationValue": "MSC_COC_1234567890",
+                "certificationIdentification": "MSC_COC_1234567890"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                "certificationAgency": "WHO",
+                "certificationStandard": "WHO Human Decency Policy",
+                "certificationValue": "1234567890",
+                "certificationIdentification": "0987654321"
+              }
+            ]
+          },
+          "gdst:broodstockSources": "Domestic"
+        },
+        "gdst:productOwner": "{{haeundae_farm_party}}",
+        "gdst:humanWelfarePolicy": "3P Audit",
+        "cbvmda:informationProvider": "{{haeundae_farm_party}}"
+      },
+      {
+        "type": "ObjectEvent",
+        "epcList": [],
+        "action": "ADD",
+        "eventTime": "2024-01-22T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v2_feed}}",
+        "quantityList": [
+              {
+            "epcClass": "urn:gdst:example.org:product:lot:class:88000197.2000002.lot12232019",
+            "quantity": 2500.0,
+            "uom": "KGM"
+          }
+            ],
+        "bizStep": "commissioning",
+        "disposition": "active",
+        "bizLocation": {
+          "id": "{{Gukje_Feedmill_location_Feedmill}}"
+        },
+        "ilmd": {
+              "gdst:proteinSource": "wild caught",
+              "cbvmda:itemExpirationDate": "2026-02-03T03:00:00.0000000+00:00",
+              "cbvmda:productionDate": "2022-02-03T03:00:00.0000000+00:00",
+              "cbvmda:countryOfOrigin": "KR",
+              "cbvmda:lotNumber": "2000002",
+              "cbvmda:certificationList": {
+                "certification": [
+                  {
+                    "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                    "certificationAgency": "test",
+                    "certificationStandard": "test",
+                    "certificationValue": "test",
+                    "certificationIdentification": "test"
+                  },
+                  {
+                    "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                    "certificationAgency": "test",
+                    "certificationStandard": "test",
+                    "certificationValue": "test",
+                    "certificationIdentification": "test"
+                  },
+                  {
+                    "gdst:certificationType": "urn:gdst:certType:processorLicense",
+                    "certificationAgency": "test",
+                    "certificationStandard": "test",
+                    "certificationValue": "test",
+                    "certificationIdentification": "test"
+                  },
+                  {
+                    "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                    "certificationAgency": "test",
+                    "certificationStandard": "test",
+                    "certificationValue": "test",
+                    "certificationIdentification": "test"
+                  }
+                ]
+              }
+            },
+        "gdst:productOwner": "{{Gukje_Feedmill_party}}",
+        "gdst:humanWelfarePolicy": "3P Audit",
+        "cbvmda:informationProvider": "{{Gukje_Feedmill_party}}"
+      },
+      {
+        "type": "TransformationEvent",
+        "eventTime": "2024-03-22T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v3_harvest}}",
+        "inputQuantityList": [
+          {
+            "epcClass": "urn:gdst:example.org:product:lot:class:8800028.2000002.lot01272020",
+            "quantity": 250.0,
+            "uom": "KGM"
+          },
+          {
+            "epcClass": "urn:gdst:example.org:product:lot:class:88000197.2000002.lot12232019",
+            "quantity": 2500.0,
+            "uom": "KGM"
+          }
+        ],
+        "outputQuantityList": [
+          {
+            "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000002.lot01282020",
+            "quantity": 1000.0,
+            "uom": "KGM"
+          }
+        ],
+        "bizStep": "urn:gdst:bizStep:farmHarvest",
+        "disposition": "active",
+        "bizLocation": {
+          "id": "{{haeundae_farm_location}}"
+        },
+        "ilmd": {
+          "gdst:aquacultureMethod": "Cage and Pen",
+          "cbvmda:productionMethodForFishAndSeafoodCode": "AQUACULTURE",
+          "cbvmda:certificationList": {
+            "certification": [
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                "certificationAgency": "Farm Certificate Authority",
+                "certificationStandard": "Farm Certificate Standard",
+                "certificationValue": "SIMP.LPCO.2",
+                "certificationIdentification": "10161781"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                "certificationAgency": "MSC",
+                "certificationStandard": "MSC Chain of Custody",
+                "certificationValue": "MSC_COC_1234567890",
+                "certificationIdentification": "MSC_COC_1234567890"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                "certificationAgency": "WHO",
+                "certificationStandard": "WHO Human Decency Policy",
+                "certificationValue": "1234567890",
+                "certificationIdentification": "0987654321"
+              }
+            ]
+          }
+        },
+        "gdst:productOwner": "{{haeundae_farm_party}}",
+        "gdst:humanWelfarePolicy": "3P Audit",
+        "cbvmda:informationProvider": "{{haeundae_farm_party}}"
+      },
+      {
+            "type": "ObjectEvent",
+            "eventTime": "2024-04-22T00:00:00.0000000+09:00",
+            "eventTimeZoneOffset": "+09:00",
+            "eventID": "{{eventID_v4_shipping}}",
+            "epcList": [],
+            "action": "OBSERVE",
+            "bizStep": "shipping",
+            "bizLocation": {
+                "id": "{{haeundae_farm_location}}"
+            },
+            "quantityList": [
+                {
+                    "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000002.lot01282020",
+                    "quantity": 1000.0,
+                    "uom": "KGM"
+                }
+            ],
+            "sourceList": [
+                {
+                    "type": "owning_party",
+                    "source": "{{haeundae_farm_party}}"
+                },
+                {
+                    "type": "location",
+                    "source": "{{haeundae_farm_location}}"
+                }
+            ],
+            "destinationList": [
+                {
+                    "type": "owning_party",
+                    "destination": "{{jagalchi_tidal_processing_party}}"
+                },
+                {
+                    "type": "location",
+                    "destination": "{{jagalchi_tidal_processing_location}}"
+                }
+            ],
+            "gdst:productOwner": "{{haeundae_farm_party}}",
+            "cbvmda:certificationList": {
+                "certification": [
+                    {
+                        "gdst:certificationType": "urn:gdst:certtype:harvestcoc"
+                    }
+                ]
+            },
+            "cbvmda:informationProvider": "{{haeundae_farm_party}}"
+        },
+      {
+        "type": "ObjectEvent",
+        "eventTime": "2024-01-27T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v5_catch}}",
+        "epcList": [],
+        "action": "ADD",
+        "bizStep": "urn:gdst:bizstep:fishingEvent",
+        "disposition": "active",
+        "bizLocation": {
+          "id": "{{blue_vessel_operator_location_catcharea}}"
+        },
+        "quantityList": [
+          {
+            "epcClass": "{{product_tuna_lot}}",
+            "quantity": 500.0,
+            "uom": "KGM"
+          }
+        ],
+        "ilmd": {
+          "cbvmda:vesselCatchInformationList": {
+            "cbvmda:vesselCatchInformation": [
+              {
+                "cbvmda:economicZone": "urn:gdst:eez:KOR",
+                "cbvmda:fishingGearTypeCode": "urn:gdst:gear:1.2",
+                "cbvmda:vesselFlagState": "KR",
+                "cbvmda:vesselID": "KRPUS-FV-0001",
+                "cbvmda:vesselName": "FV Blue Current",
+                "gdst:fisheryImprovementProject": "Example Fishery Improvement Project",
+                "gdst:gpsAvailability": true,
+                "gdst:imoNumber": "IMO.9876543",
+                "gdst:satelliteTrackingAuthority": "Korea",
+                "gdst:subnationalPermitArea": "Busan Coastal Permit Area",
+                "gdst:vesselPublicRegistry": "https://registry.example.kr/vessels/KRPUS-FV-0001",
+                "gdst:vesselTripDate": "2020-01-25T00:00:00.0000000+09:00",
+                "cbvmda:catchArea": "urn:gdst:fao:61",
+                "gdst:rfmoArea": "urn:gdst:rfmo:wcpfc"
+              }
+            ]
+          },
+          "cbvmda:productionMethodForFishAndSeafoodCode": "MARINE_FISHERY",
+          "cbvmda:certificationList": {
+            "certification": [
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                "certificationAgency": "Korea Catch Certificate Authority",
+                "certificationStandard": "Korea Catch Certificate Standard",
+                "certificationValue": "KRPUS.LPCO.2",
+                "certificationIdentification": "10161781"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:fishingAuth",
+                "certificationAgency": "Busan Fishing Authority",
+                "certificationStandard": "Busan Fishing Authorization",
+                "certificationValue": "KRPUS-1234567890",
+                "certificationIdentification": "0987654321"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                "certificationAgency": "WHO",
+                "certificationStandard": "WHO Human Decency Policy",
+                "certificationValue": "1234567890",
+                "certificationIdentification": "0987654321"
+              }
+            ]
+          }
+        },
+        "gdst:productOwner": "{{blue_vessel_operator_party}}",
+        "gdst:humanWelfarePolicy": "Internal",
+        "cbvmda:informationProvider": "{{blue_vessel_operator_party}}"
+      },
+      {
+            "eventTime": "2024-02-10T00:00:00.0000000+09:00",
+            "eventTimeZoneOffset": "+09:00",
+            "eventID": "{{eventID_v6_transshipment}}",
+            "type": "ObjectEvent",
+            "epcList": [],
+            "action": "OBSERVE",
+            "bizStep": "urn:gdst:bizStep:transshipment",
+            "disposition": "active",
+            "readPoint": {
+              "id": "geo:35.3232,129.232"
+            },
+            "bizLocation": {
+              "id": "{{blue_vessel_operator_location_catcharea}}"
+            },
+            "quantityList": [
+              {
+                "epcClass": "{{product_tuna_lot}}",
+                "quantity": 500.0,
+                "uom": "KGM"
+              }
+            ],
+            "gdst:productOwner": "{{haeundae_farm_party}}",
+            "gdst:humanWelfarePolicy": "3P Audit",
+            "cbvmda:unloadingPort": "PORTSD",
+            "cbvmda:certificationList": {
+              "certification": [
+                {
+                  "gdst:certificationType": "urn:gdst:certType:transshipmentAuth",
+                  "certificationAgency": "test",
+                  "certificationStandard": "test",
+                  "certificationValue": "test",
+                  "certificationIdentification": "test"
+                },
+                {
+                  "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                  "certificationAgency": "test",
+                  "certificationStandard": "test",
+                  "certificationValue": "test",
+                  "certificationIdentification": "test"
+                },
+                {
+                  "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                  "certificationAgency": "test",
+                  "certificationStandard": "test",
+                  "certificationValue": "test",
+                  "certificationIdentification": "test"
+                }
+              ]
+            },
+            "cbvmda:informationProvider": "{{haeundae_farm_party}}"
+          },
+      {
+        "type": "ObjectEvent",
+        "eventTime": "2024-02-27T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v7_landing}}",
+        "epcList": [],
+        "action": "OBSERVE",
+        "bizStep": "urn:gdst:bizstep:landing",
+        "bizLocation": {
+          "id": "{{blue_vessel_operator_location_port}}"
+        },
+        "quantityList": [
+          {
+            "epcClass": "{{product_tuna_lot}}",
+            "quantity": 500.0,
+            "uom": "KGM"
+          }
+        ],
+        "cbvmda:informationProvider": "{{blue_vessel_operator_party}}",
+        "cbvmda:certificationList": {
+              "certification": [
+                {
+                  "gdst:certificationType": "urn:gdst:certType:landingAuth",
+                  "certificationAgency": "test",
+                  "certificationStandard": "test",
+                  "certificationValue": "test",
+                  "certificationIdentification": "test"
+                },
+                {
+                  "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                  "certificationAgency": "test",
+                  "certificationStandard": "test",
+                  "certificationValue": "test",
+                  "certificationIdentification": "test"
+                }
+              ]
+            },
+        "cbvmda:unloadingPort": "{{blue_vessel_operator_location_port}}",
+        "gdst:humanWelfarePolicy": "3P Audit",
+        "gdst:productOwner": "{{blue_vessel_operator_party}}"
+      },
+      {
+        "type": "ObjectEvent",
+        "eventTime": "2024-03-27T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v8_shipping}}",
+        "epcList": [],
+        "action": "OBSERVE",
+        "bizStep": "shipping",
+        "bizLocation": {
+            "id": "{{blue_vessel_operator_location_port}}"
+        },
+        "quantityList": [
+          {
+            "epcClass": "{{product_tuna_lot}}",
+            "quantity": 500.0,
+            "uom": "KGM"
+          }
+        ],
+        "sourceList": [
+            {
+                "type": "owning_party",
+                "source": "{{blue_vessel_operator_party}}"
+            },
+            {
+                "type": "location",
+                "source": "{{blue_vessel_operator_location_port}}"
+            }
+        ],
+        "destinationList": [
+            {
+                "type": "owning_party",
+                "destination": "{{jagalchi_tidal_processing_party}}"
+            },
+            {
+                "type": "location",
+                "destination": "{{jagalchi_tidal_processing_location}}"
+            }
+        ],
+        "gdst:productOwner": "{{blue_vessel_operator_party}}",
+        "cbvmda:certificationList": {
+            "certification": [
+                {
+                    "gdst:certificationType": "urn:gdst:certtype:humanPolicy"
+                },
+                {
+                    "gdst:certificationType": "urn:gdst:certtype:harvestcoc"
+                }
+            ]
+        },
+        "cbvmda:informationProvider": "{{blue_vessel_operator_party}}"
+      },
+      {
+        "type": "ObjectEvent",
+        "eventTime": "2024-04-27T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v9_receipt}}",
+        "epcList": [],
+        "action": "OBSERVE",
+        "bizStep": "receiving",
+        "bizLocation": {
+            "id": "{{jagalchi_tidal_processing_location}}"
+        },
+        "quantityList": [
+          {
+            "epcClass": "{{product_tuna_lot}}",
+            "quantity": 500.0,
+            "uom": "KGM"
+          }
+        ],
+        "sourceList": [
+            {
+                "type": "owning_party",
+                "source": "{{blue_vessel_operator_party}}"
+            },
+            {
+                "type": "location",
+                "source": "{{blue_vessel_operator_location_port}}"
+            }
+        ],
+        "destinationList": [
+            {
+                "type": "owning_party",
+                "destination": "{{jagalchi_tidal_processing_party}}"
+            },
+            {
+                "type": "location",
+                "destination": "{{jagalchi_tidal_processing_location}}"
+            }
+        ],
+        "gdst:productOwner": "{{jagalchi_tidal_processing_party}}",
+        "cbvmda:certificationList": {
+            "certification": [
+                {
+                    "gdst:certificationType": "urn:gdst:certtype:humanPolicy"
+                },
+                {
+                    "gdst:certificationType": "urn:gdst:certtype:harvestcoc"
+                }
+            ]
+        },
+        "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}"
+      },
+      {
+            "type": "ObjectEvent",
+            "eventTime": "2024-05-10T00:00:00.0000000+09:00",
+            "eventTimeZoneOffset": "+09:00",
+            "eventID": "{{eventID_v10_receipt}}",
+            "epcList": [],
+            "action": "OBSERVE",
+            "bizStep": "receiving",
+            "bizLocation": {
+                "id": "{{jagalchi_tidal_processing_location}}"
+            },
+            "quantityList": [
+                {
+                    "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000002.lot01282020",
+                    "quantity": 1000.0,
+                    "uom": "KGM"
+                }
+            ],
+            "sourceList": [
+                {
+                    "type": "owning_party",
+                    "source": "{{haeundae_farm_party}}"
+                },
+                {
+                    "type": "location",
+                    "source": "{{haeundae_farm_location}}"
+                }
+            ],
+            "destinationList": [
+                {
+                    "type": "owning_party",
+                    "destination": "{{jagalchi_tidal_processing_party}}"
+                },
+                {
+                    "type": "location",
+                    "destination": "{{jagalchi_tidal_processing_location}}"
+                }
+            ],
+            "gdst:productOwner": "{{haeundae_farm_party}}",
+            "cbvmda:certificationList": {
+                "certification": [
+                    {
+                        "gdst:certificationType": "urn:gdst:certtype:harvestcoc"
+                    }
+                ]
+            },
+            "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}"
+        },
+      {
+                "type": "TransformationEvent",
+                "eventTime": "2024-05-22T00:00:00.0000000+09:00",
+                "eventTimeZoneOffset": "+09:00",
+                "eventID": "{{eventID_v11_Commingling}}",
+                "inputQuantityList": [
+                    {
+                        "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000002.lot01282020",
+                        "quantity": 1000.0,
+                        "uom": "KGM"
+                    },
+                    {
+                      "epcClass": "{{product_tuna_lot}}",
+                      "quantity": 500.0,
+                      "uom": "KGM"
+                    }
+                ],
+                "outputQuantityList": [
+                    {
+                        "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000002.lot01282022",
+                        "quantity": 1500.0,
+                        "uom": "KGM"
+                    }
+                ],
+                "bizStep": "urn:gdst:bizStep:commingling",
+                "disposition": "active",
+                "bizLocation": {
+                    "id": "{{jagalchi_tidal_processing_location}}"
+                },
+                "ilmd": {
+                    "cbvmda:productionDate": "2024-05-22T00:00:00.0000000+09:00",
+                    "cbvmda:lotNumber": "lot01282022"
+                },
+                 "gdst:productOwner": "{{jagalchi_tidal_processing_party}}",
+                 "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}"
+                },
+      {
+                "type": "TransformationEvent",
+                "eventTime": "2024-06-22T00:00:00.0000000+09:00",
+                "eventTimeZoneOffset": "+09:00",
+                "eventID": "{{eventID_v12_Canning}}",
+                "inputQuantityList": [
+                    {
+                        "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000002.lot01282022",
+                        "quantity": 1500.0,
+                        "uom": "KGM"
+                    }
+                ],
+                "outputQuantityList": [
+                    {
+                        "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000003.lot01284044",
+                        "quantity": 1000.0,
+                        "uom": "KGM"
+                    }
+                ],
+                "bizStep": "commissioning",
+                "disposition": "active",
+                "bizLocation": {
+                    "id": "{{jagalchi_tidal_processing_location}}"
+                },
+                "ilmd": {
+                    "cbvmda:itemExpirationDate": "2027-01-22T03:00:00.0000000+00:00",
+                    "cbvmda:productionDate": "2024-06-22T00:00:00.0000000+09:00",
+                    "cbvmda:countryOfOrigin": "KR",
+                    "cbvmda:lotNumber": "lot01284044",
+                    "cbvmda:certificationList": {
+                      "certification": [
+                        {
+                          "gdst:certificationType": "urn:gdst:certType:harvestCert",
+                          "certificationAgency": "test",
+                          "certificationStandard": "test",
+                          "certificationValue": "test",
+                          "certificationIdentification": "test"
+                        },
+                        {
+                          "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                          "certificationAgency": "test",
+                          "certificationStandard": "test",
+                          "certificationValue": "test",
+                          "certificationIdentification": "test"
+                        },
+                        {
+                          "gdst:certificationType": "urn:gdst:certType:processorLicense",
+                          "certificationAgency": "test",
+                          "certificationStandard": "test",
+                          "certificationValue": "test",
+                          "certificationIdentification": "test"
+                        },
+                        {
+                          "gdst:certificationType": "urn:gdst:certType:humanPolicy",
+                          "certificationAgency": "test",
+                          "certificationStandard": "test",
+                          "certificationValue": "test",
+                          "certificationIdentification": "test"
+                        }
+                      ]
+                    }
+                  },
+                 "gdst:productOwner": "{{jagalchi_tidal_processing_party}}",
+                 "gdst:humanWelfarePolicy": "3P Audit",
+                 "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}"
+                },
+      {
+      "type": "AggregationEvent",
+		  "eventID": "{{eventID_v13_Packing}}",
+		  "eventTime": "2024-07-22T00:00:00.0000000+09:00",
+      "eventTimeZoneOffset": "+09:00",
+		  "parentID":"{{container_aqua}}",
+		  "childEPCs": [],
+		  "action": "ADD",
+		  "bizStep": "packing",
+		  "disposition": "active",
+		  "readPoint": {"id": "{{jagalchi_tidal_processing_location}}"},
+		  "bizLocation": {"id": "{{jagalchi_tidal_processing_location}}"},
+		  "childQuantityList": [
+		  	{
+          "epcClass": "urn:gdst:example.org:product:lot:class:8800027.2000003.lot01284044",
+          "quantity": 1000.0,
+          "uom": "KGM"
+        }
+		  ],
+      "cbvmda:certificationList": {
+          "certification": [
+            {
+              "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+              "certificationAgency": "test",
+              "certificationStandard": "test",
+              "certificationValue": "test",
+              "certificationIdentification": "test"
+            },
+            {
+              "gdst:certificationType": "urn:gdst:certType:aggregatorLicense",
+              "certificationAgency": "test",
+              "certificationStandard": "test",
+              "certificationValue": "test",
+              "certificationIdentification": "test"
+            }
+          ]
+        },
+        "gdst:productOwner": "{{jagalchi_tidal_processing_party}}",
+        "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}"
+      },
+      {
+            "type": "ObjectEvent",
+            "eventTime": "2024-08-22T00:00:00.0000000+09:00",
+            "eventTimeZoneOffset": "+09:00",
+            "eventID": "{{eventID_v14_shipping}}", 
+            "epcList": ["{{container_aqua}}"],
+            "action": "OBSERVE",
+            "bizStep": "shipping",
+            "bizLocation": {
+                "id": "{{jagalchi_tidal_processing_location}}"
+            },
+            "sourceList": [
+                {
+                    "type": "owning_party",
+                    "source": "{{jagalchi_tidal_processing_party}}"
+                },
+                {
+                    "type": "location",
+                    "source": "{{jagalchi_tidal_processing_location}}"
+                }
+            ],
+            "destinationList": [
+                {
+                    "type": "owning_party",
+                    "destination": "{{bluewave_retailer_party}}"
+                },
+                {
+                    "type": "location",
+                    "destination": "{{bluewave_retailer_party}}"
+                }
+            ],
+            "gdst:productOwner": "{{jagalchi_tidal_processing_party}}",
+            "gdst:humanWelfarePolicy": "3P Audit",
+            "cbvmda:certificationList": {
+              "certification": [
+                {
+                  "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                  "certificationAgency": "test",
+                  "certificationStandard": "test",
+                  "certificationValue": "test",
+                  "certificationIdentification": "test"
+                }
+              ]
+            },
+            "cbvmda:informationProvider": "{{jagalchi_tidal_processing_party}}"
+        },
+      {
+        "type": "ObjectEvent",
+        "eventTime": "2024-09-22T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "eventID": "{{eventID_v15_receipt}}",
+        "epcList": ["{{container_aqua}}"],
+        "action": "OBSERVE",
+        "bizStep": "receiving",
+        "bizLocation": {
+            "id": "{{bluewave_retailer_loc}}"
+        },
+        "sourceList": [
+            {
+                "type": "owning_party",
+                "source": "{{jagalchi_tidal_processing_party}}"
+            },
+            {
+                "type": "location",
+                "source": "{{jagalchi_tidal_processing_location}}"
+            }
+        ],
+        "destinationList": [
+            {
+                "type": "owning_party",
+                "destination": "{{bluewave_retailer_party}}"
+            },
+            {
+                "type": "location",
+                "destination": "{{bluewave_retailer_loc}}"
+            }
+        ],
+        "gdst:productOwner": "{{bluewave_retailer_party}}",
+        "gdst:humanWelfarePolicy": "3P Audit",
+        "cbvmda:certificationList": {
+            "certification": [
+                {
+                  "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                  "certificationAgency": "test",
+                  "certificationStandard": "test",
+                  "certificationValue": "test",
+                  "certificationIdentification": "test"
+                }
+              ]
+        },
+        "cbvmda:informationProvider": "{{bluewave_retailer_party}}"
+        },
+        {
+        "type": "AggregationEvent",
+        "eventID": "{{eventID_v16_unpacking}}",
+        "eventTime": "2024-10-22T00:00:00.0000000+09:00",
+        "eventTimeZoneOffset": "+09:00",
+        "parentID":"{{container_aqua}}",
+        "childEPCs": [],
+        "action": "DELETE",
+        "bizStep": "unpacking",
+        "disposition": "active",
+        "readPoint": {"id": "{{bluewave_retailer_loc}}"},
+        "bizLocation": {"id": "{{bluewave_retailer_loc}}"},
+        "cbvmda:certificationList": {
+            "certification": [
+              {
+                "gdst:certificationType": "urn:gdst:certType:harvestCoC",
+                "certificationAgency": "test",
+                "certificationStandard": "test",
+                "certificationValue": "test",
+                "certificationIdentification": "test"
+              },
+              {
+                "gdst:certificationType": "urn:gdst:certType:aggregatorLicense",
+                "certificationAgency": "test",
+                "certificationStandard": "test",
+                "certificationValue": "test",
+                "certificationIdentification": "test"
+              }
+            ]
+          },
+        "gdst:productOwner": "{{bluewave_retailer_party}}",
+        "cbvmda:informationProvider": "{{bluewave_retailer_party}}"
+        }
+      ]
+    }
+}
